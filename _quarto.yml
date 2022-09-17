@@ -1,0 +1,45 @@
+project:
+  type: website
+  
+website:
+  title: "Posts"
+  navbar:
+    right:
+      - about_pt_br.qmd
+      - icon: github
+        href: https://github.com/prdm0
+      - icon: twitter
+        href: https://twitter.com/Pedro_Rafael1
+      - icon: instagram
+        href: https://www.instagram.com/prdm.0/
+    background: "#171f26"
+    pinned: true
+    menu:
+      - text: Posts
+  twitter-card:
+    creator: "@Pedro_Rafael1"
+    card-style: summary_large_image
+  open-graph: true
+  favicon: ../img/ozzy.png
+  comments: 
+    hypothesis:
+      theme: clean
+      openSidebar: false
+  page-navigation: true
+  search: 
+      location: navbar
+      type: overlay
+
+format:
+  html:
+    theme: journal
+    css: styles.css
+    citations-hover: true
+    footnotes-hover: true
+    toc: true
+
+editor: visual
+  
+
+
+

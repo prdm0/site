@@ -1,0 +1,36 @@
+---
+title: "Prof. Pedro Rafael"
+image: profile.jpg
+image-shape: rounded
+about:
+  template: trestles
+  links:
+    - icon: envelope
+      text: Email
+      href: mailto:pedro.rafael.marinho@gmail.com
+    - icon: github
+      text: Github
+      href: https://github.com/prdm0
+---
+
+<div>
+
+![⬆️ Meu ambiente de trabalho: Departamento de Estatística - UFPB](img/animacao_DE_02.gif){width="900"}
+
+</div>
+
+## Sobre mim
+
+Olá, meu nome é [**Pedro Rafael D. Marinho**](http://lattes.cnpq.br/7185368598935272) e sou Professor do [Departamento de Estatística](https://www.ufpb.br/de) da Universidade Federal da Paraíba - [UFPB](https://www.ufpb.br).
+
+<!-- Conclui meu doutorado em estatística, no ano de 2014, pelo Programa de Pós-Graduação em Estatística da Universidade Federal de Pernambuco - UFPE, onde trabalhei na área de probabilidade.  -->
+
+Sou entusiasta das linguagens de programação [**R**](https://www.r-project.org) e [**Julia**](https://julialang.org), porém, também me interesso por outas linguagens.
+
+Atualmente, tenho interesses na aplicação e no desenvolvimento de bibliotecas computacionais nas áreas de ciência de dados e aprendizagem de máquina. Uma das coisas mais nobres na ciência é desenvolver ferramentas científicas que possam ser amplamente utilizadas na produção e aplicação da ciência.
+
+#### Formação
+
+-   Bacharel em estatística pela Universidade Federal da Paraíba - UFPB, 2010;
+-   Mestre em estatística pela Universidade Federal de Pernambuco, 2012;
+-   Doutor em estatística pela Universidade Federal de Pernambuco, 2014.
