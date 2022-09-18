@@ -6,7 +6,7 @@ categories: [news, code, R, Python, Julia]
 bibliography: references.bib
 ---
 
-![](imagem_animacao.gif)
+![](r_julia_python_animacao.gif)
 
 ## Uma breve introdução
 
@@ -459,7 +459,7 @@ Essa postagem conseguiu exemplificar como poderemos implementar a solução de u
 \
 Foram observados ótimas estimativas, muito embora elas não são comparáveis, tendo em vista que os conjuntos de dados gerados aleatoriamente foram distintos, por conta da natureza de implementação das funções para geração de números pseudo-aleatórios, disponíveis em cada uma das linguagens comparadas. Foi escolhido fazer dessa forma, para que fosse possível abordar o problema de geração de números pseudo-aleatórios em cada linguagem.\
 \
-Também é possível perceber que otimizar uma função objetivo é fácil, independentemente da linguagem, sendo possível chegar a códigos concisos e eficientes. \
+Também é possível perceber que otimizar uma função objetivo é fácil, independentemente da linguagem, sendo possível chegar a códigos concisos e eficientes.\
 
 Até o próximo post.
 
