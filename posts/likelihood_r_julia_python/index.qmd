@@ -181,7 +181,7 @@ dados |>
   )
 ```
 
-Note que todas as funções densidades de probabilides - fdps plotadas no histograma apresentado no gráfico acima são densidades da família Weibull de distribuições. O que difere uma da outra são os valores de $\alpha$ e $\beta$, respectivamente. Não basta escolher uma família de distribuições adequada. Precisamos escolher (estimar) adequadamente os parâmetros que indexam a distribuição, sendo o método de máxima verossimilhança, a metodologia estatística que nos ajudam a fazer uma ótima escolha, conduzindo as estimativas que são provenientes de estimadores com boas propriedades estatísticas.
+Note que todas as funções densidades de probabilidades - fdps plotadas no histograma apresentado no gráfico acima são densidades da família Weibull de distribuições. O que difere uma da outra são os valores de $\alpha$ e $\beta$, respectivamente. Não basta escolher uma família de distribuições adequada. Precisamos escolher (estimar) adequadamente os parâmetros que indexam a distribuição, sendo o método de máxima verossimilhança, a metodologia estatística que nos ajudam a fazer uma ótima escolha, conduzindo as estimativas que são provenientes de estimadores com boas propriedades estatísticas.
 
 Lembre-se, para obter essas estimativas, temos que maximizar a @eq-objetivo, ou equivalentemente a @eq-logobjetivo.
 
