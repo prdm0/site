@@ -85,6 +85,25 @@ code span.st { color: #4070a0; } /* String */
 code span.va { color: #19177c; } /* Variable */
 code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
 </style>
 
 
@@ -135,10 +154,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <link rel="stylesheet" href="../../styles.css">
 <meta property="og:title" content="Posts - Estimação por máxima verossimilhaça em R, Julia e Python">
-<meta property="og:description" content="Ciência de dados é, sem dúvidas, um área de pesquisa que permeia diversas outras ciências, estando mais intimamente relacionada com as áreas de estatística e a computação.">
+<meta property="og:description" content="Ciência de dados é, sem dúvidas, uma área de pesquisa que permeia diversas outras ciências, estando mais intimamente relacionada com as áreas de estatística e a computação.">
 <meta property="og:site-name" content="Posts">
 <meta name="twitter:title" content="Posts - Estimação por máxima verossimilhaça em R, Julia e Python">
-<meta name="twitter:description" content="Ciência de dados é, sem dúvidas, um área de pesquisa que permeia diversas outras ciências, estando mais intimamente relacionada com as áreas de estatística e a computação.">
+<meta name="twitter:description" content="Ciência de dados é, sem dúvidas, uma área de pesquisa que permeia diversas outras ciências, estando mais intimamente relacionada com as áreas de estatística e a computação.">
 <meta name="twitter:creator" content="@Pedro_Rafael1">
 <meta name="twitter:card" content="summary_large_image">
 </head>
@@ -232,6 +251,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#implementações" id="toc-implementações" class="nav-link" data-scroll-target="#implementações">Implementações</a></li>
   </ul></li>
   <li><a href="#conclusões" id="toc-conclusões" class="nav-link" data-scroll-target="#conclusões">Conclusões</a></li>
+  <li><a href="#referências" id="toc-referências" class="nav-link" data-scroll-target="#referências">Referências</a></li>
   </ul>
 </nav>
     </div>
@@ -244,18 +264,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><img src="imagem_animacao.gif" class="img-fluid"></p>
 <section id="uma-breve-introdução" class="level2">
 <h2 class="anchored" data-anchor-id="uma-breve-introdução">Uma breve introdução</h2>
-<p><a href="https://pt.wikipedia.org/wiki/Ci%C3%AAncia_de_dados">Ciência de dados</a> é, sem dúvidas, um área de pesquisa que permeia diversas outras ciências, estando mais intimamente relacionada com as áreas de estatística e a computação.</p>
+<p><a href="https://pt.wikipedia.org/wiki/Ci%C3%AAncia_de_dados">Ciência de dados</a> é, sem dúvidas, uma área de pesquisa que permeia diversas outras ciências, estando mais intimamente relacionada com as áreas de estatística e a computação.</p>
 <div class="callout-note callout callout-style-simple">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>Eu coscumo dizer aos meus alunos que um <strong>ótimo cientista de dados</strong> é o profissional que sabe mais estatística que um bom cientista da computação e mais computação de que um bom estatístico.</p>
+<p>Eu costumo dizer aos meus alunos que um <strong>ótimo cientista de dados</strong> é o profissional que sabe mais estatística que um cientista da computação mediano e mais computação de que um bom estatístico mediano.</p>
 </div>
 </div>
 </div>
-<p>Também é importante dizer, antes de irmos ao tópico desse post, que é possível fazer ciência de dados em qualquer linguagem de programação que você domine. Claro, isso não implica que a produção de ciência de dados é igualmente fácil em qualquer linguagem que você escolha.</p>
+<p>Também é importante dizer, antes de irmos ao tópico desse post, que é possível fazer ciência de dados em qualquer linguagem de programação que você domine! Claro, isso não implica que a produção de ciência de dados é igualmente fácil em qualquer linguagem que você escolha.</p>
 <div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -266,8 +286,8 @@ Dicas de linguagens
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Se você me permitir te dar uma dica de qual linguagem de programação escolher, sem citar nomes, eu pediria para que você se aproximasse das linguagens que a comunidade que faz ciência de dados estão utilizando.</p>
-<p>Porém, se mesmo assim você quiser insistir na pergunta, me tirando da região de conforto de neutralidade, eu citaria três linguagens para você escolher:</p>
+<p>Se você me permitir te dar uma dica de qual linguagem de programação escolher, sem citar nomes, eu pediria para que você se aproximasse das linguagens que a comunidade que faz ciência de dados estão utilizando! Isso irá facilitar sua vida, pois você terá produtividad, aproveitando da infinidade de bibliotecas e frameworks disponíveis para nossa área.</p>
+<p>Porém, se mesmo assim você quiser insistir na pergunta 😟, me tirando da região de conforto de neutralidade, eu citaria três linguagens para você escolher:</p>
 <ol type="1">
 <li><a href="https://www.r-project.org"><strong>R</strong></a></li>
 <li><a href="https://www.python.org"><strong>Python</strong></a></li>
@@ -275,13 +295,38 @@ Dicas de linguagens
 </ol>
 </div>
 </div>
-<p>Se você está estudando algumas dessas linguagens ou domina ao menos uma delas, certamente você estará traçando um caminho congruente e terá a sua disposição um arsenal de ferramentas prontas para trabalhar com ciência de dados.</p>
-<p>Cada cientista de dados, por óbvio, tem sua história pessoal e é comum trilharem caminhos diferentes na programação. Não se faz ciência de dados sem programação!</p>
-<p>No meu caso, programo em R a muito mais tempo que em Julia e Python, algo acima de uma década. A linguagem Julia, tive o primeiro contato em 2012, quando surgiu a linguagem, mas somente a partir da pandemia de COVID-19 que comecei a estudar os manuais da linguagem com um pouco mais de seriedade. A linguagem Python venho estudando muito recentemente, porém, já consigo conversar sobre temas como funções variádicas (funções varargs), closures, bibliotecas como <a href="https://numpy.org">NumPy</a> e <a href="https://scipy.org">SciPy</a>, que são pedras angulares para se fazer ciência de dados em Python.</p>
-<p>Se você já é fluente em ao menos um linguagem de programação, nos concentraremos nessas três citadas acima, então perceberá que dominar uma outra linguagem é muito mais rápido. São poucas semanas para que você já consiga produzir códigos com boas práticas de programação, coisa que foi muito mais árduo no aprendizado da primeira linguagem. Claro, vez ou outra você se pegará olhando com constância os manuais dessa(s) nova(s) linguagem(ens), pois a sintaxe é nova para você e eventualmente se misturará com a sintaxe das linguagens que você já programa.</p>
-<p>Um dos problemas corriqueiros para quem trabalha com ciência de dados e, em particular, com inferência estatística é a obtenção dos <strong>Estimadores de Máxima Verossimilhança</strong> - <strong>EMV</strong>. Quando estamos utilizando frameworks de machine learning, muitas vezes essas estimações ocorrem por baixo do pano. Há diversas situações em que estimadores com boas propriedades estatísticas precisam ser utilizados, e os EMV são, de longe, os mais utilizados.</p>
-<p>Na área de machine learning, por exemplo, se o que está sendo otimizado por “baixo dos panos” não é uma função de log-verossimilhança, existirá alguma função objetivo que percisa ser maximizada ou minimizada, utilizando métodos de otimizações globais; métodos de Newton e quasi-Newton, os mesmos que utilizaremos para obenção das estimativas obtidas pelos EMV, aqui nessa postagem. Seguindo com outro exemplo, na área de redes neurais alimentadas para frente (feedforward) aplicadas à problemas de regressão ou classificação, existe uma função objetivo que levará em consideração os pesos sinápticos da arquitetura da rede com <span class="math inline">\(n\)</span> conexões, isto é, existirá uma função <span class="math inline">\(f(y, w_1, w_2, \cdots)\)</span>, em função dos pesos sinápiticos <span class="math inline">\(w_i, i = 1, ..., n\)</span> e da saida esperada. Como <span class="math inline">\(y\)</span> é conhecido (saída esperada da rede), para que a rede esteja bem ajustada, será preciso encontar um conjunto ótimo de valores <span class="math inline">\(w_i\)</span> que minimize essa função. Isso é feito pelo algoritmo backpropagation que também faz uso de métodos de otimização não-linear para encontrar o mínimo global da função objetivo.</p>
-<p>Se você quer conhecer mais profundamente essas metodologias de otimização, escrevi sobre elas no meu material de <a href="https://prdm0.github.io/aulas_computacional/"><strong>estatística computacional</strong></a>, no Seção de <a href="https://prdm0.github.io/aulas_computacional/t%C3%B3picos-em-estat%C3%ADstica-computacional.html#otimiza%C3%A7%C3%A3o-n%C3%A3o-linear"><strong>Otimização Não-linear</strong></a>.</p>
+<p>Se você está estudando algumas dessas linguagens ou domina ao menos uma delas, certamente você estará traçando um caminho congruente e terá a sua disposição um arsenal de ferramentas prontas para trabalhar com ciência de dados (bibliotecas e frameworks), i.e., você terá vários presentinhos, grátis, para poder utilizar nos seus projetos! 🎁</p>
+<p>Cada cientista de dados, por óbvio, tem sua história pessoal, sendo comum trilharem caminhos diferentes na programação. Não se faz ciência de dados sem programação, ok? 👍</p>
+<p>No meu caso, programo em R a muito mais tempo que em Julia e Python, algo acima de uma década. A linguagem Julia, tive o primeiro contato em 2012, quando surgiu a linguagem, em 2018 utilizei para construir códigos de um artigo <span class="citation" data-cites="marinho2018">Marinho et al. (<a href="#ref-marinho2018" role="doc-biblioref">2018</a>)</span>, mas somente a partir da pandemia de COVID-19 foi que comecei a estudar os manuais da linguagem com um pouco mais de seriedade. A linguagem Python venho estudando mais recentemente, porém, já consigo conversar sobre temas como funções variádicas, estruturas de dados, funções varargs, closures, bibliotecas como <a href="https://numpy.org">NumPy</a> e <a href="https://scipy.org">SciPy</a>, pedras angulares para se fazer ciência de dados em Python, entre outros assuntos. Se você veio de R ou Julia, como foi o meu caso, e quer dominar a linguagem Python, estude a <a href="https://docs.python.org/pt-br/3/tutorial/index.html">documentação oficial</a> da linguagem que é ótima. Procure conhecer:</p>
+<ol type="1">
+<li><p>As <strong>estruturas de dados</strong> de Python: arrays, tuplas, listas, dicionários e conjuntos. Nesse tópico, entenda que tuplas são objetos imutáveis, listas são mutáveis e dicionários são objetos mutáveis, assim como as listas, porém possuem palavras-chave;</p></li>
+<li><p>Estude o conceito de <strong>funções varargs</strong>, técnica muito poderosa, presente em todas às três linguagens, que permite generalizações que conduzem a códigos muito mais úteis;</p></li>
+<li><p>Estude o <strong>conceito de closures</strong>, também presente em todas às três linguagens que estamos conversando, e em diversas outras. Esse conceito permite que suas funções possam construir novas funções;</p></li>
+<li><p>Sobretudo, experimente a linguagem!</p></li>
+</ol>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+As linguagens podem conversar entre si 🎉
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Você não precisará apenas utilizar uma mesma linguagem de programação em um projeto de ciência de dados que esteja trabalhando. Se existe como fazer algo na linguagem que você está utilizando, faça nessa linguagem! Isso irá diminuir o uso de dependências. Porém, caso algo não exista algo para sua linguagem e você não está afim de implementar algum método do zero, então lembre-se que você poderá importar código de outras linguages.</p>
+<p>Se você está</p>
+<ol type="1">
+<li><p><strong>em R</strong>: você poderá importar, utilizando a biblioteca <a href="https://rstudio.github.io/reticulate/"><strong>reticulate</strong></a>, métodos e objetos com estruturas de dados em Python onde serão convertidos para estruturas equivalentes em R. Caso queira importar códigos Julia, você poderá utilizar a biblioteca <a href="https://non-contradiction.github.io/JuliaCall/index.html"><strong>JuliaCall</strong></a>;</p></li>
+<li><p><strong>em Julia</strong>: você poderá importar códigos R usando a biblioteca <a href="https://juliainterop.github.io/RCall.jl/stable/"><strong>RCall</strong></a>. Para importar códigos Python, você utilize a biblitoeca <a href="https://github.com/JuliaPy/PyCall.jl"><strong>PyCall</strong></a>;</p></li>
+<li><p><strong>em Python</strong>: você poderá chamar códigos R utilizando a biblioteca <a href="https://rpy2.github.io/doc/latest/html/introduction.html"><strong>rpy2</strong></a>. Já para chamar códigos Julia, veja a biblioteca <a href="https://github.com/JuliaPy/pyjulia"><strong>PyJulia</strong></a>.</p></li>
+</ol>
+</div>
+</div>
+<p>Se você já é fluente em ao menos uma linguagem de programação, nos concentraremos nessas três citadas acima, então perceberá que dominar outra(s) linguagem(ens) será muito mais rápido. São poucas semanas de estudo necessárias para que você já consiga produzir códigos com boas práticas de programação, coisa que foi muito mais árduo no aprendizado da primeira linguagem. Claro, vez ou outra você se pegará olhando com constância os manuais dessa(s) nova(s) linguagem(ens), pois a sintaxe é nova para você e eventualmente se misturará 🧠 com a sintaxe das linguagens que você já programa. Normal!</p>
+<p>Um dos problemas corriqueiros para quem trabalha com ciência de dados e, em particular, com inferência estatística é a obtenção dos <strong>Estimadores de Máxima Verossimilhança</strong> - <strong>EMV</strong>. Quando estamos utilizando frameworks para ciência de dados, muitas vezes essas estimações ocorrem por baixo do pano. Há diversas situações em que estimadores com boas propriedades estatísticas precisam ser utilizados, e os EMV são, de longe, os mais utilizados.</p>
+<p>Na área de machine learning, por exemplo, se o que está sendo otimizado por “baixo dos panos” não é uma função de log-verossimilhança, existirá alguma função objetivo que precisará ser maximizada ou minimizada, utilizando métodos de otimizações globais; métodos de Newton e quasi-Newton, os mesmos que utilizaremos para obtenção das estimativas obtidas pelos EMV, aqui nessa postagem. Seguindo com outro exemplo, na área de redes neurais alimentadas para frente (feedforward), aplicadas a problemas de regressão ou classificação, existe uma função objetivo considerará os pesos sinápticos da arquitetura da rede com <span class="math inline">\(n\)</span> conexões, isto é, existirá uma função <span class="math inline">\(f(y, w_1, w_2, \cdots)\)</span>, em função dos pesos sinápticos <span class="math inline">\(w_i, i = 1, ..., n\)</span> e da saída esperada. Como <span class="math inline">\(y\)</span> é conhecido (saída esperada da rede), para que a rede esteja bem ajustada, será preciso encontrar um conjunto ótimo de valores <span class="math inline">\(w_i\)</span> que minimize essa função. Isso é feito pelo algoritmo <a href="https://en.wikipedia.org/wiki/Backpropagation">backpropagation</a> utiliza métodos de otimização não-linear para encontrar o mínimo global de uma função objetivo.</p>
+<p>Se você quer conhecer mais profundamente essas metodologias de otimização, escrevi sobre elas no meu material de <a href="https://prdm0.github.io/aulas_computacional/"><strong>estatística computacional</strong></a>, na Seção de <a href="https://prdm0.github.io/aulas_computacional/t%C3%B3picos-em-estat%C3%ADstica-computacional.html#otimiza%C3%A7%C3%A3o-n%C3%A3o-linear"><strong>Otimização Não-linear</strong></a>.</p>
 <div class="callout-tip callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -292,17 +337,17 @@ Em algum momento você tem que saber otimizar funções
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Em fim, você em algum momento, no seu percurso na área de ciência de dados, irá ter que otimizar funções. Quando digo otimizar, em geral, me refiro a maximizar ou minimizar uma função objetivo. Minimizar ⬇️ ou maximizar ⬆️ dependerá da natureza do problema.</p>
-<p>Você, como um cientista de dados que é ou que almeja ser é que deverá saber se o que precisa é maximizar ou minimizar. Sobretudo, você que precisará saber qual função deverá otimizar! Isso vai além da programação. Portanto, procure sempre entender o problema e conhecer os detalhes das metodologias que deseja utilizar. ✌️</p>
-<p>Funções objetivos irão sempre aparecer na sua vida! 😅</p>
+<p>Em fim, você em algum momento, no seu percurso na área de ciência de dados, irá ter que otimizar funções. Quando digo otimizar, em geral, me refiro a maximizar ou minimizar uma função objetivo. Escolher entre minimizar ⬇️ ou maximizar ⬆️ dependerá da natureza do problema em questão.</p>
+<p>Você, como um cientista de dados que é, ou que almeja ser, será o responsável em descobrir se o que precisará fazer será maximizar ou minimizar uma função. Sobretudo, você que precisará saber qual função deverá otimizar! Isso vai além da programação. Portanto, procure sempre entender o problema e conhecer os detalhes das metodologias que deseja utilizar. 🧠</p>
+<p>Funções objetivos irão sempre aparecer na sua vida! 👍</p>
 </div>
 </div>
 </section>
 <section id="estimadores-de-máxima-verossimilhança---emv" class="level2">
 <h2 class="anchored" data-anchor-id="estimadores-de-máxima-verossimilhança---emv">Estimadores de máxima verossimilhança - EMV</h2>
-<p>Para que não fiquemos apenas olhado códigos de programação em três linguagens distintas (<strong>R</strong>, <strong>Julia</strong> e <strong>Python</strong>), irei contextualizar um simples problema: o problema de encontrar o máximo da <a href="https://en.wikipedia.org/wiki/Likelihood_function"><strong>função de verossimilhança</strong></a>. Serei muito breve. 🎉</p>
+<p>Para não ficarmos apenas olhado códigos de programação em três linguagens distintas (<strong>R</strong>, <strong>Julia</strong> e <strong>Python</strong>), irei contextualizar um simples problema: o problema de encontrar o máximo da <a href="https://en.wikipedia.org/wiki/Likelihood_function"><strong>função de verossimilhança</strong></a>. Serei muito breve! 🎉</p>
 <div class="callout-caution callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -311,10 +356,10 @@ A maior barreira 🧱 de uma implementação consistente!
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>A grande barreira que limita a nossa implementação, quando já dominamos ao menos uma linguagem de programação é não saber ao certo o que desejamos implementar.</p>
-<p>É por isso que irei contextualizar, de forma breve, um comum na estatística e ciência de dados que é o problema de otimizar uma função objetivo, mais precisamente, obter o máximo da função de verossimilhança.</p>
+<p>A grande barreira que limita a nossa implementação, quando já dominamos ao menos uma linguagem de programação, é não saber ao certo o que desejamos implementar.</p>
+<p>É por isso que irei contextualizar, de forma breve, um problema comum na estatística e ciência de dados; o problema de otimizar uma função objetivo. Mais precisamente, desejaremos obter o máximo da função de verossimilhança.</p>
 </div>
 </div>
 </div>
@@ -324,14 +369,14 @@ A maior barreira 🧱 de uma implementação consistente!
 <li><p>Considerarei o caso univariado, em que teremos uma única variável aleatória - v.a. que denotarei por <span class="math inline">\(X\)</span>;</p></li>
 <li><p>A variável aleatória - v.a. <span class="math inline">\(X\)</span> é contínua, portanto suas observações podem ser modeladas por uma <a href="https://en.wikipedia.org/wiki/Probability_density_function">função densidade de probabilidade - fdp</a> <span class="math inline">\(f\)</span>, tal que <span class="math inline">\(f_X(x) \geq 0\)</span> e <span class="math inline">\(\int_{-\infty}^{+\infty}f_X(x)\, \mathrm{d}x = 1\)</span>.</p></li>
 </ol>
-<p>Na prática, o problema consiste em, através de um conjunto de dados, fixarmos uma fdp <span class="math inline">\(f_X\)</span>. Daí, desejamos encontrar os parâmetros de fdp que faz com que <span class="math inline">\(f_X\)</span> melhor se ajuste aos dados. Os parâmetros <span class="math inline">\(\alpha\)</span> e <span class="math inline">\(\beta\)</span> que fará com que <span class="math inline">\(f_X\)</span> melhor se ajuste aos dados poderão ser obtidos maximizando a função de verossimilhança <span class="math inline">\(\mathcal{L}\)</span> de <span class="math inline">\(f_X\)</span>, em relação a <span class="math inline">\(\alpha\)</span> e <span class="math inline">\(\beta\)</span>, definida por:</p>
+<p>Na prática, o problema consiste em, por meio de um conjunto de dados, fixarmos uma fdp <span class="math inline">\(f_X\)</span>. Daí, desejaremos encontrar os parâmetros de fdp que faz com que <span class="math inline">\(f_X\)</span> melhor se ajuste aos dados. Os parâmetros <span class="math inline">\(\alpha\)</span> e <span class="math inline">\(\beta\)</span> que fará com que <span class="math inline">\(f_X\)</span> melhor se ajuste aos dados poderão ser obtidos maximizando a função de verossimilhança <span class="math inline">\(\mathcal{L}\)</span> de <span class="math inline">\(f_X\)</span>, em relação a <span class="math inline">\(\alpha\)</span> e <span class="math inline">\(\beta\)</span>, definida por:</p>
 <p><span id="eq-objetivo"><span class="math display">\[
 \mathcal{L}(x, \alpha,\beta) = \prod_{i = 1}^n f_{X_i}(x, \alpha, \beta).
 \tag{1}\]</span></span> Para simplificar as coisas, como <span class="math inline">\(\log(\cdot)\)</span> é uma função monótona, então, os valores de <span class="math inline">\(\alpha\)</span> e <span class="math inline">\(\beta\)</span> que maximizam <span class="math inline">\(\mathcal{L}\)</span> serão os mesmos que maximizam <span class="math inline">\(\log(\mathcal{L})\)</span>, ou seja, poderemos nos concentrar em maximizar:</p>
 <p><span id="eq-logobjetivo"><span class="math display">\[\ell(x, \alpha, \beta) = \sum_{i = i}^n \log[f_{X_i}(x, \alpha, \beta)]. \tag{2}\]</span></span></p>
-<p>Suponha que <span class="math inline">\(X \sim Weibull(\alpha = 2.5, \beta = 1.5)\)</span>, ou seja, que os dados que chegam a sua mesa são provenientes de uma v.a. <span class="math inline">\(X\)</span> que tem observações que segue a distribuição <span class="math inline">\(Weibull(\alpha = 2.5, \beta = 1.5)\)</span>. <strong>Essa será nossa distribuição verdadeira!</strong></p>
+<p>Suponha que <span class="math inline">\(X \sim Weibull(\alpha = 2.5, \beta = 1.5)\)</span>, ou seja, que os dados que chegam a sua mesa são provenientes de uma v.a. <span class="math inline">\(X\)</span> que tem observações que seguem a distribuição <span class="math inline">\(Weibull(\alpha = 2.5, \beta = 1.5)\)</span>. <strong>Essa será nossa distribuição verdadeira!</strong></p>
 <p>Na prática, você apenas conhecerá os dados! Será você, como cientista de dados, que irá supor alguma família de distribuições para modelar os dados em questão. 🥴</p>
-<p>Vamos supor que você, acertivamente, escolhe a famíla Weibull de distribuições para modelar o seu conjunto de dados (você fará isso olhando o comportamento dos dados, por exemplo, fazendo um histograma).</p>
+<p>Vamos supor que você, assertivamente, escolhe a família Weibull de distribuições para modelar o seu conjunto de dados (você fará isso olhando o comportamento dos dados, por exemplo, fazendo um histograma). Existem testes de aderências para checar o quanto uma distribuição se ajusta a um conjunto de dados. Não entraremos nesse assunto aqui!</p>
 <div class="cell">
 <details>
 <summary>Quer ver o código do gráfico? Clique aqui!</summary>
@@ -405,9 +450,11 @@ A maior barreira 🧱 de uma implementação consistente!
 <p><img src="index_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>Note que todas as funções densidades de probabilidas - fdps plotadas no histograma aprensentado no gráfico acima são densidades da família Weibull de distribuições. O que difere uma da outra são os valores de <span class="math inline">\(\alpha\)</span> e <span class="math inline">\(\beta\)</span>, respectivamente. Não basta escolher uma família de distribuições adequadade. Precisamos escolher (estimar) adequadade os parâmetros que indexam a distribuição, sendo o método de máxima verossimilhança, a metodologia estatística que nos ajudam a fazer uma ótima escolha, conduzindo as estimativas que são provenientes de estimadores com boas propriedades estatísticas.</p>
+<p>Note que todas as funções densidades de probabilides - fdps plotadas no histograma apresentado no gráfico acima são densidades da família Weibull de distribuições. O que difere uma da outra são os valores de <span class="math inline">\(\alpha\)</span> e <span class="math inline">\(\beta\)</span>, respectivamente. Não basta escolher uma família de distribuições adequada. Precisamos escolher (estimar) adequadamente os parâmetros que indexam a distribuição, sendo o método de máxima verossimilhança, a metodologia estatística que nos ajudam a fazer uma ótima escolha, conduzindo as estimativas que são provenientes de estimadores com boas propriedades estatísticas.</p>
 <p>Lembre-se, para obter essas estimativas, temos que maximizar a <a href="#eq-objetivo">Equation&nbsp;1</a>, ou equivalentemente a <a href="#eq-logobjetivo">Equation&nbsp;2</a>.</p>
-<p>No gráfico acima, é possivel visualmente perceber que a curva em amarelo é a que melhor aproxima o comportamento dos dados. De fato, essa é a curva da distribuição verdadeira, i.e., é a curva da fdp de <span class="math inline">\(X \sim Weibull(\alpha = 2.5, \beta = 1.5)\)</span>. Por sinal, ainda não coloquei a equação da fdp de <span class="math inline">\(X\)</span>. Segue logo abaixo:</p>
+<p>No gráfico acima, é possível visualmente perceber que a curva em amarelo é a que melhor aproxima o comportamento dos dados. Não iremos fazer testes de adequação!<br>
+<br>
+De fato, essa é a curva da distribuição verdadeira, i.e., é a curva da fdp de <span class="math inline">\(X \sim Weibull(\alpha = 2.5, \beta = 1.5)\)</span>. Por sinal, ainda não coloquei a equação da fdp de <span class="math inline">\(X\)</span>. Segue logo abaixo:</p>
 <p><span class="math display">\[f_X(x) = (\alpha/\beta)(x/\beta)^{\alpha - 1}\exp[{-(x/\beta)^\alpha}],\]</span> com <span class="math inline">\(x\)</span>, <span class="math inline">\(\alpha\)</span> e <span class="math inline">\(\beta &gt; 0\)</span>.</p>
 <section id="implementações" class="level3">
 <h3 class="anchored" data-anchor-id="implementações">Implementações</h3>
@@ -422,17 +469,23 @@ E os dados?
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Os dados serão gerados aleatoriamente, em cada uma das linguagem (<a href="https://www.r-project.org"><strong>R</strong></a>, <a href="https://julialang.org"><strong>Julia</strong></a> e <a href="https://www.python.org"><strong>Python</strong></a>). Sendo assim, muito provavelmente não serão os mesmos dados, em cada linguagem, pois a sequência gerada que corresponderá aos nossos dados dependerá da implementação dos geradores de números pseudo-aleatórios de cada linguagem. Porém, os resultados das estimativas devem convergir para valores próximos a <span class="math inline">\(\alpha = 2.5\)</span> e <span class="math inline">\(\beta = 1.5\)</span>, nas três linguagens.</p>
-<p>Irei colocar comentários nos códigos para que você possa estudar cada um deles.</p>
+<p>Os dados serão gerados aleatoriamente, em cada uma das linguagens (<a href="https://www.r-project.org"><strong>R</strong></a>, <a href="https://julialang.org"><strong>Julia</strong></a> e <a href="https://www.python.org"><strong>Python</strong></a>). Sendo assim, muito provavelmente não serão os mesmos dados, em cada linguagem, pois a sequência gerada que corresponderá aos nossos dados dependerá das implementações dos geradores de números pseudo-aleatórios de cada linguagem. Porém, os resultados das estimativas devem convergir para valores próximos a <span class="math inline">\(\alpha = 2.5\)</span> e <span class="math inline">\(\beta = 1.5\)</span>, nas três linguagens. Por isso, não irie comparar os resultados das estimativas obtidas, a não ser que viesse a ter resultados muito incoerentes.</p>
+<p>Irei colocar comentários nos códigos para que você possa estudar cada um deles. Nada em excesso!</p>
 </div>
 </div>
 <p>Antes irei colocar uma observação para a linguagem Python. As pedras angulares para computação científica em Python são as bibliotecas NumPy e Scipy. Por que elas são úteis?</p>
 <ol type="1">
-<li><p><strong>Numpy</strong>: é uma biblioteca de código aberto iniciada em 2005 e que possui diversos métodos (funções) numéricas comumente utilizadas na computação científica. Há diversos métodos para operar sobre arrays, vetorização, geraçãom de números pseudo atelatórios, entre outras coisas. Consulte mais detalhes em <a href="https://numpy.org/doc/stable" class="uri">https://numpy.org/doc/stable</a>;</p></li>
-<li><p><strong>Scipy</strong>: tarta-se de uma outra biblioteca importante que contém implementações de métodos de algoritmos fundamentais para computação científica, como métodos de integramação, interpolação, otimização, entre diversas outras metodologias. Consulte outros detalhes em <a href="https://scipy.org" class="uri">https://scipy.org</a>.</p></li>
+<li><p><strong>Numpy</strong>: é uma biblioteca de código aberto iniciada em 2005 e que possui diversos métodos (funções) numéricas comumente utilizadas na computação científica. Há diversos métodos para operar sobre arrays, vetorização, geração de números pseudo aleatórios, entre outras coisas. Consulte mais detalhes em <a href="https://numpy.org/doc/stable" class="uri">https://numpy.org/doc/stable</a>;</p></li>
+<li><p><strong>Scipy</strong>: trata-se de outra biblioteca importante que contém implementações de métodos e algoritmos fundamentais para computação científica, como métodos de integração, interpolação, otimização, entre diversas outras metodologias. Consulte outros detalhes em <a href="https://scipy.org" class="uri">https://scipy.org</a>.</p></li>
 </ol>
-<p>Iremos utilizar ambas as bibliotecas. Basicamente a Numpy será utilizada para vetorização de código, trabalhar com arrays e gerar observações da distribuição Weibull. Nesse último ponto, especificiamente, a biblioteca Numpy implementa a função que gera observações de uma distribuição weibull, onde a distribuição Weibull só tem um parâmetro. Consulte detalhes em <a href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.weibull.html" class="uri">https://numpy.org/doc/stable/reference/random/generated/numpy.random.weibull.html</a>.</p>
+<p>Iremos utilizar ambas as bibliotecas. Basicamente a Numpy será utilizada para vetorização de código, trabalhar com arrays e gerar observações da distribuição Weibull. Nesse último ponto, especificamente, a biblioteca Numpy implementa a função que gera observações de uma distribuição Weibull, onde a distribuição Weibull só tem um parâmetro. Consulte detalhes em <a href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.weibull.html" class="uri">https://numpy.org/doc/stable/reference/random/generated/numpy.random.weibull.html</a>.</p>
 <p>No <a href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.weibull.html">link</a> você verá que o que é implementado pelo método <code>random.weibull</code> é gerar observações de <span class="math inline">\(X = [-\log(U)]^{1/\alpha} \sim Weibull(\alpha)\)</span>, com <span class="math inline">\(U\)</span> sendo um v.a. uniforme no intervalo (0,1] . Daí, para gerar observações da distribuição <span class="math inline">\(Weibull(\alpha, \beta)\)</span>, teremos que multiplicar o resultado de <code>random.weibull</code> pelo valor de <span class="math inline">\(\beta\)</span>. Porém, com pouco código, podemos construir uma função para gerar observações da <span class="math inline">\(Weibull(\alpha, \beta)\)</span>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="nao_entendi.gif" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Eu olhando param um pouco de malabarismo de código (desnecessário) em Python.</figcaption><p></p>
+</figure>
+</div>
 <p>Veja como seria em R, Julia e Python:</p>
 <div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Julia</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">Python</a></li></ul>
@@ -487,12 +540,6 @@ E os dados?
 </div>
 </div>
 </div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="nao_entendi.gif" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Eu olhando param um pouco de malabarismo de código (desnecessário) em Python.</figcaption><p></p>
-</figure>
-</div>
 <div class="callout-tip callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -504,19 +551,19 @@ Isso é um pouco estranho, mas tudo bem, sabemos programar!
 </div>
 <div class="callout-body-container callout-body">
 <p>Ter que multiplicar as observações geradas de uma distribuição que deveria ter, em sua definição, dois parâmetros me parece estranho! Perceba que no código de Python foi preciso fazer definir a função <code>random_weibull</code>, em que foi preciso considerar <code>beta * np.random.weibull(alpha, n)</code> para se ter observações Weibull com valores de <span class="math inline">\(\beta\)</span> diferente de 1. É fácil adaptar, mais o designer não é legal, na minha opinião.</p>
-<p>Afinal de contas, é muito mais conveniente alterar o comportamento e resultados de uma função passando argumentos para a função, e não fazendo as alterações fora dela. É esse o papel dos argumentos, não? Se o usuário tivesse interesse que <span class="math inline">\(\beta = 1\)</span>, como ocorre em <code>random.weibull</code> ele poderia especificar isso como argumento da função, certo?</p>
-<p>Comportamentos mais convenientes são observados em R e Julia, afinal de contas, elas surgiram com o foco na computação científica. R é mais voltada para ciência de dados e aprendizagem de máquina. Já Julia, além dos mesmos focos de R, também é uma linguagem de proprósito geral, assim como Python é em sua essência.</p>
+<p>Afinal de contas, é muito mais conveniente alterar o comportamento e resultados de uma função passando argumentos para a função, e não fazendo as alterações fora dela. É esse o papel dos argumentos, não? Se o usuário tivesse interesse que <span class="math inline">\(\beta = 1\)</span>, como ocorre em <code>random.weibull</code> ele poderia especificar isso como argumento passados à função, certo?</p>
+<p>Comportamentos mais convenientes são observados em R e Julia, afinal de contas, elas surgiram com o foco na computação científica. R é mais voltada para ciência de dados e aprendizagem de máquina. Já Julia, além dos mesmos focos de R, também é uma linguagem de propósito geral, assim como Python é em sua essência.</p>
 <p>Note que essa minha crítica não é a linguagem Python. Refere-se tão somente ao método <code>random.weibull</code> e alguns outros que seguem esse designer de implementação. Python é uma ótima linguagem que vem melhorando o seu desempenho nas novas versões. Veja as <a href="https://docs.python.org/3.11/whatsnew/3.11.html">novidades</a> de lançamento do Python 3.11, que alcançou melhorias no desempenho computacional entre 10-60% quando comparado com Python 3.10. Algo em torno de 1.25x de aumento no desempenho, considerando o conjunto de benchmarks padrão que o comitê de desenvolvimento da linguagem utiliza.</p>
 </div>
 </div>
-<p>Agora sim, vamos aos três códigos completos para a solução do problema que motiva o título desse post.</p>
+<p>Agora, sim, vamos aos três códigos completos para a solução do problema que motiva o título desse post.</p>
 <p><img src="preguica_feliz.gif" class="img-fluid"></p>
-<p>Nas três linguagens, utilizarei os mesmo conceitos importantes de implementação que conduzem a códigos mais generalizados e a um melhor reaproveitamente de código:</p>
+<p>Nas três linguagens, utilizarei os mesmo conceitos importantes de implementação que conduzem a códigos mais generalizados e a um melhor reaproveitamento de código:</p>
 <ol type="1">
-<li><p>Note que utilizo o conceito de funções com argumentos variádicos, também chamadas de <strong>funções varargs</strong>. Perceba que a função <code>log_likelihood</code> não precisa ser reimplementada novamente para outras funções densidades. A função densidade de probabilidade é um argumento dessa função que denominei de <code>log_likelihood</code> nos três códigos (R, Python e Julia). Precisamos de operadores <strong>varargs</strong>, tendo em vista que não conhecemos o número de parâmetros da fdp que o usuário irá passar como argumento. Funções com argumentos <strong>varargs</strong> é uma técnica muito poderosa. Utilizei esses conceitos em Python e Julia, tendo em vista que não se faz necessário para a função <code>optim</code> em R. ⚡</p></li>
-<li><p>Note que não é preciso obter analiticamente a expressão da função de log-verossimilhança. Não há sentido nisso, tendo em vista que o nosso objetivo é simplesmente obter as estimativas numéricas para <span class="math inline">\(\alpha\)</span> e <span class="math inline">\(\beta\)</span> . É muito mais útil ter uma função genérica que se adeque a diversas outras situações!</p></li>
-<li><p>Outro conceito poderoso e que te leva a implementações consistentes é entender o funcionamento das funções anônimas, também conhecida como <a href="https://en.wikipedia.org/wiki/Anonymous_function"><strong>funções lambda</strong></a>**.</p></li>
-<li><p>Foi utilizado como método de otimização (minimização), o método <a href="https://en.wikipedia.org/wiki/Broyden%E2%80%93Fletcher%E2%80%93Goldfarb%E2%80%93Shanno_algorithm">BFGS</a>. Escrevi a respeito dos métodos de quasi-Newton, classe de algoritmos que o método de <strong>B</strong>royden–<strong>F</strong>letcher–<strong>G</strong>oldfarb–<strong>S</strong>hanno - <strong>BFGS</strong> pertencem, nos materiais que diponibilizo aos meus alunos na discipina de estatística computacional que leciono no Departamento de Estatística da UFPB. Se quiser um pouco mais de detalhes, clique <a href="https://prdm0.github.io/aulas_computacional/t%C3%B3picos-em-estat%C3%ADstica-computacional.html#otimiza%C3%A7%C3%A3o-n%C3%A3o-linear">aqui</a>.</p></li>
+<li><p>Note que utilizo o conceito de funções com argumentos variáveis, também chamadas de <strong>funções varargs</strong>. Perceba que a função <code>log_likelihood</code> não precisa ser reimplementada novamente para outras funções densidades. A função densidade de probabilidade é um argumento dessa função que denominei de <code>log_likelihood</code> nos três códigos (R, Python e Julia). Precisamos de funções com operadores <strong>varargs</strong>, tendo em vista que não conhecemos o número de parâmetros da fdp que o usuário irá passar como argumento. Funções com argumentos <strong>varargs</strong> é uma técnica muito poderosa. Utilizei esses conceitos em Python e Julia, devido a natureza das funções de otimizações das duas linguagens, em que em seus designers permitem que os argumentos a serem otimizados da função objetivo seja de número variável. As funções varargs de R são definidas pelo operador dot-dot-dot (<code>...</code>). O designer da função <code>optim()</code> de R incluem o parâmetro dot-dot-dot, para argumentos extras que eventualmente possam existir na função objetivo. ⚡</p></li>
+<li><p>Note que não é preciso obter analiticamente a expressão da função de log-verossimilhança. Não há sentido nisso, tendo em vista que o nosso objetivo é simplesmente obter as estimativas numéricas para <span class="math inline">\(\alpha\)</span> e <span class="math inline">\(\beta\)</span> . É muito mais útil ter uma função genérica que se adéque a diversas outras situações!</p></li>
+<li><p>Outro conceito poderoso e que te leva a implementações consistentes é entender o funcionamento das funções anônimas, também conhecidas como <a href="https://en.wikipedia.org/wiki/Anonymous_function"><strong>funções lambda</strong></a>.</p></li>
+<li><p>Foi utilizado como método de otimização (minimização), o método <a href="https://en.wikipedia.org/wiki/Broyden%E2%80%93Fletcher%E2%80%93Goldfarb%E2%80%93Shanno_algorithm">BFGS</a>. Escrevi a respeito dos métodos de quasi-Newton, classe de algoritmos que o método de <strong>B</strong>royden–<strong>F</strong>letcher–<strong>G</strong>oldfarb–<strong>S</strong>hanno - <strong>BFGS</strong> pertencem, nos materiais que disponibilizo aos meus alunos na disciplina de estatística computacional que leciono no Departamento de Estatística da UFPB. Se quiser um pouco mais de detalhes a respeito dos métodos de Newtone quasi-Newton, clique <a href="https://prdm0.github.io/aulas_computacional/t%C3%B3picos-em-estat%C3%ADstica-computacional.html#otimiza%C3%A7%C3%A3o-n%C3%A3o-linear">aqui</a>.</p></li>
 </ol>
 <div class="callout-tip callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
@@ -532,7 +579,7 @@ Minimizar ou maximizar?
 </div>
 </div>
 <div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">Python</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">Julia</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-3" role="tab" aria-controls="tabset-2-3" aria-selected="false">Python</a></li></ul>
 <div class="tab-content">
 <div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
 <div class="cell">
@@ -560,34 +607,32 @@ Minimizar ou maximizar?
 <span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Checando se a densidade de pdf_weibull integra em 1</span></span>
-<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a><span class="fu">integrate</span>(<span class="at">f =</span> pdf_weibull, <span class="at">lower =</span> <span class="dv">0</span>, <span class="at">upper =</span> <span class="cn">Inf</span>, <span class="at">par =</span> <span class="fu">c</span>(<span class="fl">2.5</span>, <span class="fl">1.5</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>1 with absolute error &lt; 6e-06</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Em R, o operador dot-dot-dot (...) é utilizado para definir</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co"># quantidade variádica de argumentos. Assim, log_likelihood é</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co"># uma função vararg.</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>log_likelihood <span class="ot">&lt;-</span> <span class="cf">function</span>(x, pdf, par)</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="sc">-</span><span class="fu">sum</span>(<span class="fu">log</span>(<span class="fu">pdf</span>(x, par)))</span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">optim</span>(</span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">fn =</span> log_likelihood,</span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">par =</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">0.5</span>),</span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">method =</span> <span class="st">"BFGS"</span>,</span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> dados,</span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">pdf =</span> pdf_weibull</span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Imprimindo os valores das estimativas de máxima verossimilhança</span></span>
-<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Valores estimados de alpha e beta</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>area <span class="ot">=</span> <span class="fu">integrate</span>(<span class="at">f =</span> pdf_weibull, <span class="at">lower =</span> <span class="dv">0</span>, <span class="at">upper =</span> <span class="cn">Inf</span>, <span class="at">par =</span> <span class="fu">c</span>(<span class="fl">2.5</span>, <span class="fl">1.5</span>))</span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Em R, o operador dot-dot-dot (...) é utilizado para definir</span></span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a><span class="co"># quantidade variádica de argumentos. Assim, log_likelihood é</span></span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a><span class="co"># uma função vararg.</span></span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a>log_likelihood <span class="ot">&lt;-</span> <span class="cf">function</span>(x, pdf, par)</span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a>  <span class="sc">-</span><span class="fu">sum</span>(<span class="fu">log</span>(<span class="fu">pdf</span>(x, par)))</span>
+<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">optim</span>(</span>
+<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a>  <span class="at">fn =</span> log_likelihood,</span>
+<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a>  <span class="at">par =</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">0.5</span>),</span>
+<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a>  <span class="at">method =</span> <span class="st">"BFGS"</span>,</span>
+<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> dados,</span>
+<span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a>  <span class="at">pdf =</span> pdf_weibull</span>
+<span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb8-40"><a href="#cb8-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-41"><a href="#cb8-41" aria-hidden="true" tabindex="-1"></a><span class="co"># Imprimindo os valores das estimativas de máxima verossimilhança</span></span>
+<span id="cb8-42"><a href="#cb8-42" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Valores estimados de alpha e beta</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Valores estimados de alpha e beta</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"--&gt; alpha: "</span>, result<span class="sc">$</span>par[<span class="dv">1</span>], <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"--&gt; alpha: "</span>, result<span class="sc">$</span>par[<span class="dv">1</span>], <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>--&gt; alpha:  2.86476 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"--&gt; beta: "</span>, result<span class="sc">$</span>par[<span class="dv">2</span>], <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"--&gt; beta: "</span>, result<span class="sc">$</span>par[<span class="dv">2</span>], <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>--&gt; beta:  1.503992 </code></pre>
 </div>
@@ -595,75 +640,136 @@ Minimizar ou maximizar?
 </div>
 <div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy.stats <span class="im">as</span> stat</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy.integrate <span class="im">as</span> inte</span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy.optimize <span class="im">as</span> opt</span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Valores da distribuição verdadeira</span></span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>alpha <span class="op">=</span> <span class="fl">2.5</span></span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>beta <span class="op">=</span> <span class="fl">1.5</span></span>
-<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Número de observações que irão compor nossos dados</span></span>
-<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">250</span> </span>
-<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Implementando a função random_weibull, em que os parâmetros</span></span>
-<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a><span class="co"># que indexam a distribuição são argumentos da função. Tem mais</span></span>
-<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a><span class="co"># sentido ser assim, não?</span></span>
-<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> random_weibull(n, alpha, beta):</span>
-<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> beta <span class="op">*</span> np.random.weibull(alpha,n)</span>
-<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Escrevendo a funçãp densidade de probabilidade da Weibull</span></span>
-<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a><span class="co"># na reparametrização correta.</span></span>
-<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> pdf_weibull(x, param):</span>
-<span id="cb16-22"><a href="#cb16-22" aria-hidden="true" tabindex="-1"></a>  alpha <span class="op">=</span> param[<span class="dv">0</span>]</span>
-<span id="cb16-23"><a href="#cb16-23" aria-hidden="true" tabindex="-1"></a>  beta <span class="op">=</span> param[<span class="dv">1</span>]</span>
-<span id="cb16-24"><a href="#cb16-24" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> alpha<span class="op">/</span>beta <span class="op">*</span> (x<span class="op">/</span>beta)<span class="op">**</span>(alpha<span class="op">-</span><span class="dv">1</span>) <span class="op">*</span> np.exp(<span class="op">-</span>(x<span class="op">/</span>beta)<span class="op">**</span>alpha)</span>
-<span id="cb16-25"><a href="#cb16-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-26"><a href="#cb16-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Testando se a densidade integra em 1</span></span>
-<span id="cb16-27"><a href="#cb16-27" aria-hidden="true" tabindex="-1"></a><span class="bu">round</span>(inte.quad(<span class="kw">lambda</span> x, alpha, beta: pdf_weibull(x, param <span class="op">=</span> [alpha, beta]),</span>
-<span id="cb16-28"><a href="#cb16-28" aria-hidden="true" tabindex="-1"></a>      <span class="dv">0</span>, np.inf, args <span class="op">=</span> (<span class="dv">1</span>,<span class="dv">1</span>))[<span class="dv">0</span>],<span class="dv">2</span>)</span>
-<span id="cb16-29"><a href="#cb16-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-30"><a href="#cb16-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Implementando uma função genérica que implementa a função objetivo</span></span>
-<span id="cb16-31"><a href="#cb16-31" aria-hidden="true" tabindex="-1"></a><span class="co"># (função de log-verossimilhança) que iremos maximizar. Essa função </span></span>
-<span id="cb16-32"><a href="#cb16-32" aria-hidden="true" tabindex="-1"></a><span class="co"># irá receber como argumento uma função densidade de probabilidade.</span></span>
-<span id="cb16-33"><a href="#cb16-33" aria-hidden="true" tabindex="-1"></a><span class="co"># Não é preciso destrinchar (obter de forma exata) a função de </span></span>
-<span id="cb16-34"><a href="#cb16-34" aria-hidden="true" tabindex="-1"></a><span class="co"># log-verossimilhança!</span></span>
-<span id="cb16-35"><a href="#cb16-35" aria-hidden="true" tabindex="-1"></a><span class="co"># A função de log-verossimilhança encontra-se multiplicada por -1</span></span>
-<span id="cb16-36"><a href="#cb16-36" aria-hidden="true" tabindex="-1"></a><span class="co"># devido ao fato da função que iremos fazer otimização minimizar </span></span>
-<span id="cb16-37"><a href="#cb16-37" aria-hidden="true" tabindex="-1"></a><span class="co"># uma função função objetivo. Minimizar -f equivale a maximizar f.</span></span>
-<span id="cb16-38"><a href="#cb16-38" aria-hidden="true" tabindex="-1"></a><span class="co"># Lembre-se disso!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">Distributions</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">Random</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">Optim</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">QuadGK</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Quantidade de observações</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="fl">250</span>;</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Parâmetros que especificam a distribuição verdadeira, i.e., </span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="co"># da fdp da v.a. cujos os dados são observações.</span></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>α <span class="op">=</span> <span class="fl">2.5</span>;</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>β <span class="op">=</span> <span class="fl">1.5</span>;</span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Fixando um valor de semente</span></span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a><span class="bu">Random</span>.<span class="fu">seed!</span>(<span class="fl">0</span>);</span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Gerando um array de dados com distribuição Weibull(α, β)</span></span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>dados <span class="op">=</span> <span class="fu">rand</span>(<span class="fu">Weibull</span>(α,β), n);</span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Função densidade de probaiblidade de uma v.a. </span></span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a><span class="co"># X ∼ Weibull(α, β)</span></span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">pdf_weibull</span>(x, par <span class="op">=</span> (α, β))</span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a>    α, β <span class="op">=</span> par.α, par.β   </span>
+<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a>    @. α<span class="op">/</span>β <span class="op">*</span> (x<span class="op">/</span>β)<span class="op">^</span>(α<span class="op">-</span><span class="fl">1</span>) <span class="op">*</span> <span class="fu">exp</span>(<span class="fu">-</span>(x<span class="op">/</span>β)<span class="op">^</span>α)</span>
+<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span>;</span>
+<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Checando se a integral no suporte de pdf_weibull integra em 1</span></span>
+<span id="cb14-28"><a href="#cb14-28" aria-hidden="true" tabindex="-1"></a>area, error <span class="op">=</span> <span class="fu">quadgk</span>(x <span class="op">-&gt;</span> <span class="fu">pdf_weibull</span>(x, (α <span class="op">=</span> α, β <span class="op">=</span> β)), <span class="fl">0</span>, <span class="cn">Inf</span>);</span>
+<span id="cb14-29"><a href="#cb14-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-30"><a href="#cb14-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Escrevendo a função log_likelihood que em julia denotarei por</span></span>
+<span id="cb14-31"><a href="#cb14-31" aria-hidden="true" tabindex="-1"></a><span class="co"># ℓ, tendo em vista que podemos fazer uso de caracteres UTF-8 </span></span>
+<span id="cb14-32"><a href="#cb14-32" aria-hidden="true" tabindex="-1"></a><span class="co"># nessa linguagem. </span></span>
+<span id="cb14-33"><a href="#cb14-33" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">ℓ</span>(x, pdf, par<span class="op">...</span>)</span>
+<span id="cb14-34"><a href="#cb14-34" aria-hidden="true" tabindex="-1"></a>    <span class="fu">-sum</span>(<span class="fu">log</span>.(<span class="fu">pdf</span>(x, par<span class="op">...</span>)))</span>
+<span id="cb14-35"><a href="#cb14-35" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span>;</span>
+<span id="cb14-36"><a href="#cb14-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-37"><a href="#cb14-37" aria-hidden="true" tabindex="-1"></a><span class="co"># Encontrando as estimativas de máxima verossimilhança usando a</span></span>
+<span id="cb14-38"><a href="#cb14-38" aria-hidden="true" tabindex="-1"></a><span class="co"># biblioteca Optim</span></span>
+<span id="cb14-39"><a href="#cb14-39" aria-hidden="true" tabindex="-1"></a>emv <span class="op">=</span> <span class="fu">optimize</span>(</span>
+<span id="cb14-40"><a href="#cb14-40" aria-hidden="true" tabindex="-1"></a>        x <span class="op">-&gt;</span> <span class="fu">ℓ</span>(dados, pdf_weibull, (α <span class="op">=</span> x[<span class="fl">1</span>], β <span class="op">=</span> x[<span class="fl">2</span>])),</span>
+<span id="cb14-41"><a href="#cb14-41" aria-hidden="true" tabindex="-1"></a>        [<span class="fl">0.5</span>, <span class="fl">0.5</span>],</span>
+<span id="cb14-42"><a href="#cb14-42" aria-hidden="true" tabindex="-1"></a>        <span class="fu">LBFGS</span>()</span>
+<span id="cb14-43"><a href="#cb14-43" aria-hidden="true" tabindex="-1"></a>); </span>
+<span id="cb14-44"><a href="#cb14-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-45"><a href="#cb14-45" aria-hidden="true" tabindex="-1"></a>emv_α, emv_β  <span class="op">=</span> emv.minimizer;</span>
+<span id="cb14-46"><a href="#cb14-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-47"><a href="#cb14-47" aria-hidden="true" tabindex="-1"></a><span class="co"># Imprimindo o resultado</span></span>
+<span id="cb14-48"><a href="#cb14-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-49"><a href="#cb14-49" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"Valores estimados para α e β</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>1.0</code></pre>
+<pre><code>Valores estimados para α e β</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> log_likelihood(x, pdf, <span class="op">*</span>args):</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="op">-</span>np.<span class="bu">sum</span>(np.log(pdf(np.array(x), <span class="op">*</span>args)))</span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Gerando um conjunto de dados com alpha = 2.5 e beta = 1.5. Essa </span></span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="co"># é nossa distribuição verdadeira, i.e., é a distribuição que gera</span></span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="co"># que gerou os dados que desejamos ajustar.</span></span>
-<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Precisamos fixar uma semente, uma vez que queremos os mesmos dados</span></span>
-<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="co"># toda vez que rodamos esse código. </span></span>
-<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">0</span>)</span>
-<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>dados <span class="op">=</span> random_weibull(n <span class="op">=</span> n, alpha <span class="op">=</span> alpha, beta <span class="op">=</span> beta)</span>
-<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Miminimizando a função -1 * log_likelihood, i.e., maximizando</span></span>
-<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a><span class="co"># a função log_likelihood.</span></span>
-<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>alpha, beta <span class="op">=</span> np.<span class="bu">round</span>(opt.minimize(</span>
-<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>  fun <span class="op">=</span> <span class="kw">lambda</span> <span class="op">*</span>args: log_likelihood(dados, pdf_weibull, <span class="op">*</span>args),</span>
-<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a>  x0<span class="op">=</span>[<span class="fl">0.5</span>, <span class="fl">0.5</span>]</span>
-<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a>).x, <span class="dv">2</span>)</span>
-<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Imprimindo os valores das estimativas de máxima verossimilhança</span></span>
-<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Valores estimados de alpha e beta</span><span class="ch">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"--&gt; α: "</span>, <span class="fu">round</span>(emv_α, digits <span class="op">=</span> <span class="fl">2</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>--&gt; α: 2.45</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"--&gt; β: "</span>, <span class="fu">round</span>(emv_β, digits <span class="op">=</span> <span class="fl">2</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>--&gt; β: 1.45</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-2-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-3-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy.stats <span class="im">as</span> stat</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy.integrate <span class="im">as</span> inte</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy.optimize <span class="im">as</span> opt</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Valores da distribuição verdadeira</span></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>alpha <span class="op">=</span> <span class="fl">2.5</span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>beta <span class="op">=</span> <span class="fl">1.5</span></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Número de observações que irão compor nossos dados</span></span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">250</span> </span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Implementando a função random_weibull, em que os parâmetros</span></span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a><span class="co"># que indexam a distribuição são argumentos da função. Tem mais</span></span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a><span class="co"># sentido ser assim, não?</span></span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> random_weibull(n, alpha, beta):</span>
+<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> beta <span class="op">*</span> np.random.weibull(alpha,n)</span>
+<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Escrevendo a funçãp densidade de probabilidade da Weibull</span></span>
+<span id="cb20-20"><a href="#cb20-20" aria-hidden="true" tabindex="-1"></a><span class="co"># na reparametrização correta.</span></span>
+<span id="cb20-21"><a href="#cb20-21" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> pdf_weibull(x, param):</span>
+<span id="cb20-22"><a href="#cb20-22" aria-hidden="true" tabindex="-1"></a>  alpha <span class="op">=</span> param[<span class="dv">0</span>]</span>
+<span id="cb20-23"><a href="#cb20-23" aria-hidden="true" tabindex="-1"></a>  beta <span class="op">=</span> param[<span class="dv">1</span>]</span>
+<span id="cb20-24"><a href="#cb20-24" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> alpha<span class="op">/</span>beta <span class="op">*</span> (x<span class="op">/</span>beta)<span class="op">**</span>(alpha<span class="op">-</span><span class="dv">1</span>) <span class="op">*</span> np.exp(<span class="op">-</span>(x<span class="op">/</span>beta)<span class="op">**</span>alpha)</span>
+<span id="cb20-25"><a href="#cb20-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-26"><a href="#cb20-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Testando se a densidade integra em 1</span></span>
+<span id="cb20-27"><a href="#cb20-27" aria-hidden="true" tabindex="-1"></a>área <span class="op">=</span> <span class="bu">round</span>(inte.quad(<span class="kw">lambda</span> x, alpha, beta: pdf_weibull(x, param <span class="op">=</span> [alpha, beta]),</span>
+<span id="cb20-28"><a href="#cb20-28" aria-hidden="true" tabindex="-1"></a>      <span class="dv">0</span>, np.inf, args <span class="op">=</span> (<span class="dv">1</span>,<span class="dv">1</span>))[<span class="dv">0</span>],<span class="dv">2</span>)</span>
+<span id="cb20-29"><a href="#cb20-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-30"><a href="#cb20-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Implementando uma função genérica que implementa a função objetivo</span></span>
+<span id="cb20-31"><a href="#cb20-31" aria-hidden="true" tabindex="-1"></a><span class="co"># (função de log-verossimilhança) que iremos maximizar. Essa função </span></span>
+<span id="cb20-32"><a href="#cb20-32" aria-hidden="true" tabindex="-1"></a><span class="co"># irá receber como argumento uma função densidade de probabilidade.</span></span>
+<span id="cb20-33"><a href="#cb20-33" aria-hidden="true" tabindex="-1"></a><span class="co"># Não é preciso destrinchar (obter de forma exata) a função de </span></span>
+<span id="cb20-34"><a href="#cb20-34" aria-hidden="true" tabindex="-1"></a><span class="co"># log-verossimilhança!</span></span>
+<span id="cb20-35"><a href="#cb20-35" aria-hidden="true" tabindex="-1"></a><span class="co"># A função de log-verossimilhança encontra-se multiplicada por -1</span></span>
+<span id="cb20-36"><a href="#cb20-36" aria-hidden="true" tabindex="-1"></a><span class="co"># devido ao fato da função que iremos fazer otimização minimizar </span></span>
+<span id="cb20-37"><a href="#cb20-37" aria-hidden="true" tabindex="-1"></a><span class="co"># uma função função objetivo. Minimizar -f equivale a maximizar f.</span></span>
+<span id="cb20-38"><a href="#cb20-38" aria-hidden="true" tabindex="-1"></a><span class="co"># Lembre-se disso!</span></span>
+<span id="cb20-39"><a href="#cb20-39" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> log_likelihood(x, pdf, <span class="op">*</span>args):</span>
+<span id="cb20-40"><a href="#cb20-40" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="op">-</span>np.<span class="bu">sum</span>(np.log(pdf(np.array(x), <span class="op">*</span>args)))</span>
+<span id="cb20-41"><a href="#cb20-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-42"><a href="#cb20-42" aria-hidden="true" tabindex="-1"></a><span class="co"># Gerando um conjunto de dados com alpha = 2.5 e beta = 1.5. Essa </span></span>
+<span id="cb20-43"><a href="#cb20-43" aria-hidden="true" tabindex="-1"></a><span class="co"># é nossa distribuição verdadeira, i.e., é a distribuição que gera</span></span>
+<span id="cb20-44"><a href="#cb20-44" aria-hidden="true" tabindex="-1"></a><span class="co"># que gerou os dados que desejamos ajustar.</span></span>
+<span id="cb20-45"><a href="#cb20-45" aria-hidden="true" tabindex="-1"></a><span class="co"># Precisamos fixar uma semente, uma vez que queremos os mesmos dados</span></span>
+<span id="cb20-46"><a href="#cb20-46" aria-hidden="true" tabindex="-1"></a><span class="co"># toda vez que rodamos esse código. </span></span>
+<span id="cb20-47"><a href="#cb20-47" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">0</span>)</span>
+<span id="cb20-48"><a href="#cb20-48" aria-hidden="true" tabindex="-1"></a>dados <span class="op">=</span> random_weibull(n <span class="op">=</span> n, alpha <span class="op">=</span> alpha, beta <span class="op">=</span> beta)</span>
+<span id="cb20-49"><a href="#cb20-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-50"><a href="#cb20-50" aria-hidden="true" tabindex="-1"></a><span class="co"># Miminimizando a função -1 * log_likelihood, i.e., maximizando</span></span>
+<span id="cb20-51"><a href="#cb20-51" aria-hidden="true" tabindex="-1"></a><span class="co"># a função log_likelihood.</span></span>
+<span id="cb20-52"><a href="#cb20-52" aria-hidden="true" tabindex="-1"></a>alpha, beta <span class="op">=</span> np.<span class="bu">round</span>(opt.minimize(</span>
+<span id="cb20-53"><a href="#cb20-53" aria-hidden="true" tabindex="-1"></a>  fun <span class="op">=</span> <span class="kw">lambda</span> <span class="op">*</span>args: log_likelihood(dados, pdf_weibull, <span class="op">*</span>args),</span>
+<span id="cb20-54"><a href="#cb20-54" aria-hidden="true" tabindex="-1"></a>  x0<span class="op">=</span>[<span class="fl">0.5</span>, <span class="fl">0.5</span>]</span>
+<span id="cb20-55"><a href="#cb20-55" aria-hidden="true" tabindex="-1"></a>).x, <span class="dv">2</span>)</span>
+<span id="cb20-56"><a href="#cb20-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-57"><a href="#cb20-57" aria-hidden="true" tabindex="-1"></a><span class="co"># Imprimindo os valores das estimativas de máxima verossimilhança</span></span>
+<span id="cb20-58"><a href="#cb20-58" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Valores estimados de alpha e beta</span><span class="ch">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Valores estimados de alpha e beta</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"--&gt; alpha: "</span>, alpha, <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"--&gt; alpha: "</span>, alpha, <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>--&gt; alpha:  2.54 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"--&gt; beta: "</span>, beta, <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"--&gt; beta: "</span>, beta, <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>--&gt; beta:  1.48 </code></pre>
 </div>
@@ -675,11 +781,19 @@ Minimizar ou maximizar?
 </section>
 <section id="conclusões" class="level2">
 <h2 class="anchored" data-anchor-id="conclusões">Conclusões</h2>
+</section>
+<section id="referências" class="level2">
+
+
 
 
 </section>
 
-</main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">Referências</h2><div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="ref-marinho2018" class="csl-entry" role="doc-biblioentry">
+Marinho, Pedro Rafael Diniz, Gauss M. Cordeiro, Fernando Peña Ramírez, Morad Alizadeh, and Marcelo Bourguignon. 2018. <span>“The Exponentiated Logarithmic Generated Family of Distributions and the Evaluation of the Confidence Intervals by Percentile Bootstrap.”</span> <em>Brazilian Journal of Probability and Statistics</em> 32 (2). <a href="https://doi.org/10.1214/16-bjps343">https://doi.org/10.1214/16-bjps343</a>.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

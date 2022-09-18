@@ -23,7 +23,7 @@ pdf_weibull <- function(x, par){
 # Checando se a densidade de pdf_weibull integra em 1
 integrate(f = pdf_weibull, lower = 0, upper = Inf, par = c(2.5, 1.5))
 
-# Implementando uma função genérica que implementa a função objetivo
+# Implementando uma função genérica (função objetivo)
 # (função de log-verossimilhança) que iremos maximizar. Essa função 
 # irá receber como argumento uma função densidade de probabilidade.
 # Não é preciso destrinchar (obter de forma exata) a função de 
