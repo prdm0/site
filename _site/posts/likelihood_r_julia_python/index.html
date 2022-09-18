@@ -9,7 +9,7 @@
 <meta name="author" content="Prof.&nbsp;Pedro Rafael D. Marinho">
 <meta name="dcterms.date" content="2022-09-09">
 
-<title>Posts - Estimação por máxima verossimilhaça em R, Julia e Python</title>
+<title>Posts - Estimação por máxima verossimilhança em R, Julia e Python</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -153,10 +153,10 @@ div.csl-indent {
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="Posts - Estimação por máxima verossimilhaça em R, Julia e Python">
+<meta property="og:title" content="Posts - Estimação por máxima verossimilhança em R, Julia e Python">
 <meta property="og:description" content="Ciência de dados é, sem dúvidas, uma área de pesquisa que permeia diversas outras ciências, estando mais intimamente relacionada com as áreas de estatística e a computação.">
 <meta property="og:site-name" content="Posts">
-<meta name="twitter:title" content="Posts - Estimação por máxima verossimilhaça em R, Julia e Python">
+<meta name="twitter:title" content="Posts - Estimação por máxima verossimilhança em R, Julia e Python">
 <meta name="twitter:description" content="Ciência de dados é, sem dúvidas, uma área de pesquisa que permeia diversas outras ciências, estando mais intimamente relacionada com as áreas de estatística e a computação.">
 <meta name="twitter:creator" content="@Pedro_Rafael1">
 <meta name="twitter:card" content="summary_large_image">
@@ -206,7 +206,7 @@ div.csl-indent {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Estimação por máxima verossimilhaça em R, Julia e Python</h1>
+      <h1 class="title">Estimação por máxima verossimilhança em R, Julia e Python</h1>
                                 <div class="quarto-categories">
                 <div class="quarto-category">news</div>
                 <div class="quarto-category">code</div>
@@ -287,7 +287,7 @@ Dicas de linguagens
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Se você me permitir te dar uma dica de qual linguagem de programação escolher, sem citar nomes, eu pediria para que você se aproximasse das linguagens que a comunidade que faz ciência de dados estão utilizando! Isso irá facilitar sua vida, pois você terá produtividad, aproveitando da infinidade de bibliotecas e frameworks disponíveis para nossa área.</p>
+<p>Se você me permitir te dar uma dica de qual linguagem de programação escolher, sem citar nomes, eu pediria para que você se aproximasse das linguagens que a comunidade que faz ciência de dados estão utilizando! Isso irá facilitar sua vida, pois você terá produtividade, aproveitando da infinidade de bibliotecas e frameworks disponíveis para nossa área.</p>
 <p>Porém, se mesmo assim você quiser insistir na pergunta 😟, me tirando da região de conforto de neutralidade, eu citaria três linguagens para você escolher:</p>
 <ol type="1">
 <li><a href="https://www.r-project.org"><strong>R</strong></a>, veja <span class="citation" data-cites="linguagemr">R Core Team (<a href="#ref-linguagemr" role="doc-biblioref">2022</a>)</span></li>
@@ -315,18 +315,18 @@ As linguagens podem conversar entre si 🎉
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Você não precisará apenas utilizar uma mesma linguagem de programação em um projeto de ciência de dados que esteja trabalhando. Se existe como fazer algo na linguagem que você está utilizando, faça nessa linguagem! Isso irá diminuir o uso de dependências. Porém, caso algo não exista algo para sua linguagem e você não está afim de implementar algum método do zero, então lembre-se que você poderá importar código de outras linguages.</p>
+<p>Você não precisará apenas utilizar uma mesma linguagem de programação em um projeto de ciência de dados que esteja trabalhando. Se existe como fazer algo na linguagem que você está utilizando, faça nessa linguagem! Isso irá diminuir o uso de dependências. Porém, caso algo não exista para sua linguagem e você não está afim de implementar algum método do zero, então lembre-se que você poderá importar código de outras linguagens.</p>
 <p>Se você está</p>
 <ol type="1">
 <li><p><strong>em R</strong>: você poderá importar, utilizando a biblioteca <strong>reticulate</strong>, veja <span class="citation" data-cites="reticulate">Ushey, Allaire, and Tang (<a href="#ref-reticulate" role="doc-biblioref">2022</a>)</span>, métodos e objetos com estruturas de dados em Python onde serão convertidos para estruturas equivalentes em R. Caso queira importar códigos Julia, você poderá utilizar a biblioteca <strong>JuliaCall</strong> <span class="citation" data-cites="JuliaCall">(<a href="#ref-JuliaCall" role="doc-biblioref">Li 2019</a>)</span>;</p></li>
-<li><p><strong>em Julia</strong>: você poderá importar códigos R usando a biblioteca <a href="https://juliainterop.github.io/RCall.jl/stable/"><strong>RCall</strong></a>. Para importar códigos Python, você utilize a biblitoeca <a href="https://github.com/JuliaPy/PyCall.jl"><strong>PyCall</strong></a>;</p></li>
+<li><p><strong>em Julia</strong>: você poderá importar códigos R usando a biblioteca <a href="https://juliainterop.github.io/RCall.jl/stable/"><strong>RCall</strong></a>. Para importar códigos Python, você deverá utilizar a biblioteca <a href="https://github.com/JuliaPy/PyCall.jl"><strong>PyCall</strong></a>;</p></li>
 <li><p><strong>em Python</strong>: você poderá chamar códigos R utilizando a biblioteca <a href="https://rpy2.github.io/doc/latest/html/introduction.html"><strong>rpy2</strong></a>. Já para chamar códigos Julia, veja a biblioteca <a href="https://github.com/JuliaPy/pyjulia"><strong>PyJulia</strong></a>.</p></li>
 </ol>
 </div>
 </div>
 <p>Se você já é fluente em ao menos uma linguagem de programação, nos concentraremos nessas três citadas acima, então perceberá que dominar outra(s) linguagem(ens) será muito mais rápido. São poucas semanas de estudo necessárias para que você já consiga produzir códigos com boas práticas de programação, coisa que foi muito mais árduo no aprendizado da primeira linguagem. Claro, vez ou outra você se pegará olhando com constância os manuais dessa(s) nova(s) linguagem(ens), pois a sintaxe é nova para você e eventualmente se misturará 🧠 com a sintaxe das linguagens que você já programa. Normal!</p>
 <p>Um dos problemas corriqueiros para quem trabalha com ciência de dados e, em particular, com inferência estatística é a obtenção dos <strong>Estimadores de Máxima Verossimilhança</strong> - <strong>EMV</strong>. Quando estamos utilizando frameworks para ciência de dados, muitas vezes essas estimações ocorrem por baixo do pano. Há diversas situações em que estimadores com boas propriedades estatísticas precisam ser utilizados, e os EMV são, de longe, os mais utilizados.</p>
-<p>Na área de machine learning, por exemplo, se o que está sendo otimizado por “baixo dos panos” não é uma função de log-verossimilhança, existirá alguma função objetivo que precisará ser maximizada ou minimizada, utilizando métodos de otimizações globais; métodos de Newton e quasi-Newton, os mesmos que utilizaremos para obtenção das estimativas obtidas pelos EMV, aqui nessa postagem. Seguindo com outro exemplo, na área de redes neurais alimentadas para frente (feedforward), aplicadas a problemas de regressão ou classificação, existe uma função objetivo considerará os pesos sinápticos da arquitetura da rede com <span class="math inline">\(n\)</span> conexões, isto é, existirá uma função <span class="math inline">\(f(y, w_1, w_2, \cdots)\)</span>, em função dos pesos sinápticos <span class="math inline">\(w_i, i = 1, ..., n\)</span> e da saída esperada. Como <span class="math inline">\(y\)</span> é conhecido (saída esperada da rede), para que a rede esteja bem ajustada, será preciso encontrar um conjunto ótimo de valores <span class="math inline">\(w_i\)</span> que minimize essa função. Isso é feito pelo algoritmo <a href="https://en.wikipedia.org/wiki/Backpropagation">backpropagation</a> utiliza métodos de otimização não-linear para encontrar o mínimo global de uma função objetivo.</p>
+<p>Na área de machine learning, por exemplo, se o que está sendo otimizado por “baixo dos panos” não é uma função de log-verossimilhança, existirá alguma função objetivo que precisará ser maximizada ou minimizada, utilizando métodos de otimizações globais; métodos de Newton e quasi-Newton, os mesmos que utilizaremos para obtenção das estimativas obtidas pelos EMV, aqui nessa postagem. Seguindo com outro exemplo, na área de redes neurais alimentadas para frente (feedforward), aplicadas a problemas de regressão ou classificação, existe uma função objetivo que considerará os pesos sinápticos da arquitetura da rede com <span class="math inline">\(n\)</span> conexões, isto é, existirá uma função <span class="math inline">\(f(y, w_1, w_2, \cdots)\)</span>, em função dos pesos sinápticos <span class="math inline">\(w_i, i = 1, ..., n\)</span> e da saída esperada. Como <span class="math inline">\(y\)</span> é conhecido (saída esperada da rede), para que a rede esteja bem ajustada, será preciso encontrar um conjunto ótimo de valores <span class="math inline">\(w_i\)</span> que minimize essa função. Isso é feito pelo algoritmo <a href="https://en.wikipedia.org/wiki/Backpropagation">backpropagation</a> utiliza métodos de otimização não-linear para encontrar o mínimo global de uma função objetivo.</p>
 <p>Se você quer conhecer mais profundamente essas metodologias de otimização, escrevi sobre elas no meu material de <a href="https://prdm0.github.io/aulas_computacional/"><strong>estatística computacional</strong></a>, na Seção de <a href="https://prdm0.github.io/aulas_computacional/t%C3%B3picos-em-estat%C3%ADstica-computacional.html#otimiza%C3%A7%C3%A3o-n%C3%A3o-linear"><strong>Otimização Não-linear</strong></a>.</p>
 <div class="callout-tip callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">

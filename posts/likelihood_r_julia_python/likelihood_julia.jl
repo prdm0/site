@@ -19,7 +19,7 @@ Random.seed!(0);
 
 # Gerando um array de dados com distribuição Weibull(α, β)
 # dados = rand(Weibull(α,β), n);
-dados = CSV.read("dados.csv", delim=",", DataFrame)
+dados = CSV.read("dados.csv", delim=",", DataFrame).dados
 
 
 # Função densidade de probaiblidade de uma v.a. 
@@ -34,7 +34,6 @@ area, error = quadgk(x -> pdf_weibull(x, (α = α, β = β)), 0, Inf);
 
 # Escrevendo a função log_likelihood que em julia denotarei por
 # ℓ, tendo em vista que podemos fazer uso de caracteres UTF-8 
-# nessa linguagem. 
 
 function ℓ(x, pdf, par...)
     -sum(log.(pdf(x, par...)))
