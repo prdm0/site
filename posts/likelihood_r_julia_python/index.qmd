@@ -25,16 +25,16 @@ Se você me permitir te dar uma dica de qual linguagem de programação escolher
 
 Porém, se mesmo assim você quiser insistir na pergunta 😟, me tirando da região de conforto de neutralidade, eu citaria três linguagens para você escolher:
 
-1.  [**R**](https://www.r-project.org)
-2.  [**Python**](https://www.python.org)
-3.  [**Julia**](https://julialang.org)
+1.  [**R**](https://www.r-project.org), veja @linguagemr
+2.  [**Python**](https://www.python.org), veja @vanrossum2010
+3.  [**Julia**](https://julialang.org), veja @bezanson2017
 :::
 
 Se você está estudando algumas dessas linguagens ou domina ao menos uma delas, certamente você estará traçando um caminho congruente e terá a sua disposição um arsenal de ferramentas prontas para trabalhar com ciência de dados (bibliotecas e frameworks), i.e., você terá vários presentinhos, grátis, para poder utilizar nos seus projetos! 🎁
 
 Cada cientista de dados, por óbvio, tem sua história pessoal, sendo comum trilharem caminhos diferentes na programação. Não se faz ciência de dados sem programação, ok? 👍
 
-No meu caso, programo em R a muito mais tempo que em Julia e Python, algo acima de uma década. A linguagem Julia, tive o primeiro contato em 2012, quando surgiu a linguagem, em 2018 utilizei para construir códigos de um artigo @marinho2018, mas somente a partir da pandemia de COVID-19 foi que comecei a estudar os manuais da linguagem com um pouco mais de seriedade. A linguagem Python venho estudando mais recentemente, porém, já consigo conversar sobre temas como funções variádicas, estruturas de dados, funções varargs, closures, bibliotecas como [NumPy](https://numpy.org) e [SciPy](https://scipy.org), pedras angulares para se fazer ciência de dados em Python, entre outros assuntos. Se você veio de R ou Julia, como foi o meu caso, e quer dominar a linguagem Python, estude a [documentação oficial](https://docs.python.org/pt-br/3/tutorial/index.html) da linguagem que é ótima. Procure conhecer:
+No meu caso, programo em R a muito mais tempo que em Julia e Python, algo acima de uma década. A linguagem Julia, tive o primeiro contato em 2012, (veja p. 74 de [@bezanson2017], quando surgiu a linguagem, em 2018 utilizei para construir códigos de um artigo @marinho2018, mas somente a partir da pandemia de COVID-19 foi que comecei a estudar os manuais da linguagem com um pouco mais de seriedade. A linguagem Python venho estudando mais recentemente, porém, já consigo conversar sobre temas como funções variádicas, estruturas de dados, funções varargs, closures, bibliotecas como [NumPy](https://numpy.org) e [SciPy](https://scipy.org), pedras angulares para se fazer ciência de dados em Python, entre outros assuntos. Se você veio de R ou Julia, como foi o meu caso, e quer dominar a linguagem Python, estude a [documentação oficial](https://docs.python.org/pt-br/3/tutorial/index.html) da linguagem que é ótima. Procure conhecer:
 
 1.  As **estruturas de dados** de Python: arrays, tuplas, listas, dicionários e conjuntos. Nesse tópico, entenda que tuplas são objetos imutáveis, listas são mutáveis e dicionários são objetos mutáveis, assim como as listas, porém possuem palavras-chave;
 
@@ -51,7 +51,7 @@ Você não precisará apenas utilizar uma mesma linguagem de programação em um
 
 Se você está
 
-1.  **em R**: você poderá importar, utilizando a biblioteca [**reticulate**](https://rstudio.github.io/reticulate/), métodos e objetos com estruturas de dados em Python onde serão convertidos para estruturas equivalentes em R. Caso queira importar códigos Julia, você poderá utilizar a biblioteca [**JuliaCall**](https://non-contradiction.github.io/JuliaCall/index.html);
+1.  **em R**: você poderá importar, utilizando a biblioteca **reticulate**, veja @reticulate, métodos e objetos com estruturas de dados em Python onde serão convertidos para estruturas equivalentes em R. Caso queira importar códigos Julia, você poderá utilizar a biblioteca **JuliaCall** [@JuliaCall];
 
 2.  **em Julia**: você poderá importar códigos R usando a biblioteca [**RCall**](https://juliainterop.github.io/RCall.jl/stable/). Para importar códigos Python, você utilize a biblitoeca [**PyCall**](https://github.com/JuliaPy/PyCall.jl);
 
@@ -454,5 +454,13 @@ print("--> beta: ", beta, "\n")
 :::
 
 ## Conclusões
+
+Essa postagem conseguiu exemplificar como poderemos implementar a solução de um problema de estimação por máxima verossimilhança, utilizando as linguagens de programação R, Python e Julia. Nas três linguagens, abordamos conceitos interessantes como funções varargs e funções anônimas, além de algumas estruturas de dados e bibliotecas.\
+\
+Foram observados ótimas estimativas, muito embora elas não são comparáveis, tendo em vista que os conjuntos de dados gerados aleatoriamente foram distintos, por conta da natureza de implementação das funções para geração de números pseudo-aleatórios, disponíveis em cada uma das linguagens comparadas. Foi escolhido fazer dessa forma, para que fosse possível abordar o problema de geração de números pseudo-aleatórios em cada linguagem.\
+\
+Também é possível perceber que otimizar uma função objetivo é fácil, independentemente da linguagem, sendo possível chegar a códigos concisos e eficientes. \
+
+Até o próximo post.
 
 ## Referências

@@ -289,15 +289,15 @@ Dicas de linguagens
 <p>Se você me permitir te dar uma dica de qual linguagem de programação escolher, sem citar nomes, eu pediria para que você se aproximasse das linguagens que a comunidade que faz ciência de dados estão utilizando! Isso irá facilitar sua vida, pois você terá produtividad, aproveitando da infinidade de bibliotecas e frameworks disponíveis para nossa área.</p>
 <p>Porém, se mesmo assim você quiser insistir na pergunta 😟, me tirando da região de conforto de neutralidade, eu citaria três linguagens para você escolher:</p>
 <ol type="1">
-<li><a href="https://www.r-project.org"><strong>R</strong></a></li>
-<li><a href="https://www.python.org"><strong>Python</strong></a></li>
-<li><a href="https://julialang.org"><strong>Julia</strong></a></li>
+<li><a href="https://www.r-project.org"><strong>R</strong></a>, veja <span class="citation" data-cites="linguagemr">R Core Team (<a href="#ref-linguagemr" role="doc-biblioref">2022</a>)</span></li>
+<li><a href="https://www.python.org"><strong>Python</strong></a>, veja <span class="citation" data-cites="vanrossum2010">Rossum (<a href="#ref-vanrossum2010" role="doc-biblioref">2010</a>)</span></li>
+<li><a href="https://julialang.org"><strong>Julia</strong></a>, veja <span class="citation" data-cites="bezanson2017">Bezanson et al. (<a href="#ref-bezanson2017" role="doc-biblioref">2017</a>)</span></li>
 </ol>
 </div>
 </div>
 <p>Se você está estudando algumas dessas linguagens ou domina ao menos uma delas, certamente você estará traçando um caminho congruente e terá a sua disposição um arsenal de ferramentas prontas para trabalhar com ciência de dados (bibliotecas e frameworks), i.e., você terá vários presentinhos, grátis, para poder utilizar nos seus projetos! 🎁</p>
 <p>Cada cientista de dados, por óbvio, tem sua história pessoal, sendo comum trilharem caminhos diferentes na programação. Não se faz ciência de dados sem programação, ok? 👍</p>
-<p>No meu caso, programo em R a muito mais tempo que em Julia e Python, algo acima de uma década. A linguagem Julia, tive o primeiro contato em 2012, quando surgiu a linguagem, em 2018 utilizei para construir códigos de um artigo <span class="citation" data-cites="marinho2018">Marinho et al. (<a href="#ref-marinho2018" role="doc-biblioref">2018</a>)</span>, mas somente a partir da pandemia de COVID-19 foi que comecei a estudar os manuais da linguagem com um pouco mais de seriedade. A linguagem Python venho estudando mais recentemente, porém, já consigo conversar sobre temas como funções variádicas, estruturas de dados, funções varargs, closures, bibliotecas como <a href="https://numpy.org">NumPy</a> e <a href="https://scipy.org">SciPy</a>, pedras angulares para se fazer ciência de dados em Python, entre outros assuntos. Se você veio de R ou Julia, como foi o meu caso, e quer dominar a linguagem Python, estude a <a href="https://docs.python.org/pt-br/3/tutorial/index.html">documentação oficial</a> da linguagem que é ótima. Procure conhecer:</p>
+<p>No meu caso, programo em R a muito mais tempo que em Julia e Python, algo acima de uma década. A linguagem Julia, tive o primeiro contato em 2012, (veja p.&nbsp;74 de <span class="citation" data-cites="bezanson2017">(<a href="#ref-bezanson2017" role="doc-biblioref">Bezanson et al. 2017</a>)</span>, quando surgiu a linguagem, em 2018 utilizei para construir códigos de um artigo <span class="citation" data-cites="marinho2018">Marinho et al. (<a href="#ref-marinho2018" role="doc-biblioref">2018</a>)</span>, mas somente a partir da pandemia de COVID-19 foi que comecei a estudar os manuais da linguagem com um pouco mais de seriedade. A linguagem Python venho estudando mais recentemente, porém, já consigo conversar sobre temas como funções variádicas, estruturas de dados, funções varargs, closures, bibliotecas como <a href="https://numpy.org">NumPy</a> e <a href="https://scipy.org">SciPy</a>, pedras angulares para se fazer ciência de dados em Python, entre outros assuntos. Se você veio de R ou Julia, como foi o meu caso, e quer dominar a linguagem Python, estude a <a href="https://docs.python.org/pt-br/3/tutorial/index.html">documentação oficial</a> da linguagem que é ótima. Procure conhecer:</p>
 <ol type="1">
 <li><p>As <strong>estruturas de dados</strong> de Python: arrays, tuplas, listas, dicionários e conjuntos. Nesse tópico, entenda que tuplas são objetos imutáveis, listas são mutáveis e dicionários são objetos mutáveis, assim como as listas, porém possuem palavras-chave;</p></li>
 <li><p>Estude o conceito de <strong>funções varargs</strong>, técnica muito poderosa, presente em todas às três linguagens, que permite generalizações que conduzem a códigos muito mais úteis;</p></li>
@@ -317,7 +317,7 @@ As linguagens podem conversar entre si 🎉
 <p>Você não precisará apenas utilizar uma mesma linguagem de programação em um projeto de ciência de dados que esteja trabalhando. Se existe como fazer algo na linguagem que você está utilizando, faça nessa linguagem! Isso irá diminuir o uso de dependências. Porém, caso algo não exista algo para sua linguagem e você não está afim de implementar algum método do zero, então lembre-se que você poderá importar código de outras linguages.</p>
 <p>Se você está</p>
 <ol type="1">
-<li><p><strong>em R</strong>: você poderá importar, utilizando a biblioteca <a href="https://rstudio.github.io/reticulate/"><strong>reticulate</strong></a>, métodos e objetos com estruturas de dados em Python onde serão convertidos para estruturas equivalentes em R. Caso queira importar códigos Julia, você poderá utilizar a biblioteca <a href="https://non-contradiction.github.io/JuliaCall/index.html"><strong>JuliaCall</strong></a>;</p></li>
+<li><p><strong>em R</strong>: você poderá importar, utilizando a biblioteca <strong>reticulate</strong>, veja <span class="citation" data-cites="reticulate">Ushey, Allaire, and Tang (<a href="#ref-reticulate" role="doc-biblioref">2022</a>)</span>, métodos e objetos com estruturas de dados em Python onde serão convertidos para estruturas equivalentes em R. Caso queira importar códigos Julia, você poderá utilizar a biblioteca <strong>JuliaCall</strong> <span class="citation" data-cites="JuliaCall">(<a href="#ref-JuliaCall" role="doc-biblioref">Li 2019</a>)</span>;</p></li>
 <li><p><strong>em Julia</strong>: você poderá importar códigos R usando a biblioteca <a href="https://juliainterop.github.io/RCall.jl/stable/"><strong>RCall</strong></a>. Para importar códigos Python, você utilize a biblitoeca <a href="https://github.com/JuliaPy/PyCall.jl"><strong>PyCall</strong></a>;</p></li>
 <li><p><strong>em Python</strong>: você poderá chamar códigos R utilizando a biblioteca <a href="https://rpy2.github.io/doc/latest/html/introduction.html"><strong>rpy2</strong></a>. Já para chamar códigos Julia, veja a biblioteca <a href="https://github.com/JuliaPy/pyjulia"><strong>PyJulia</strong></a>.</p></li>
 </ol>
@@ -781,6 +781,13 @@ Minimizar ou maximizar?
 </section>
 <section id="conclusões" class="level2">
 <h2 class="anchored" data-anchor-id="conclusões">Conclusões</h2>
+<p>Essa postagem conseguiu exemplificar como poderemos implementar a solução de um problema de estimação por máxima verossimilhança, utilizando as linguagens de programação R, Python e Julia. Nas três linguagens, abordamos conceitos interessantes como funções varargs e funções anônimas, além de algumas estruturas de dados e bibliotecas.<br>
+<br>
+Foram observados ótimas estimativas, muito embora elas não são comparáveis, tendo em vista que os conjuntos de dados gerados aleatoriamente foram distintos, por conta da natureza de implementação das funções para geração de números pseudo-aleatórios, disponíveis em cada uma das linguagens comparadas. Foi escolhido fazer dessa forma, para que fosse possível abordar o problema de geração de números pseudo-aleatórios em cada linguagem.<br>
+<br>
+Também é possível perceber que otimizar uma função objetivo é fácil, independentemente da linguagem, sendo possível chegar a códigos concisos e eficientes.<br>
+</p>
+<p>Até o próximo post.</p>
 </section>
 <section id="referências" class="level2">
 
@@ -790,8 +797,23 @@ Minimizar ou maximizar?
 </section>
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">Referências</h2><div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="ref-bezanson2017" class="csl-entry" role="doc-biblioentry">
+Bezanson, Jeff, Alan Edelman, Stefan Karpinski, and Viral B. Shah. 2017. <span>“Julia: A Fresh Approach to Numerical Computing.”</span> <em>SIAM Review</em> 59 (1): 65–98. <a href="https://doi.org/10.1137/141000671">https://doi.org/10.1137/141000671</a>.
+</div>
+<div id="ref-JuliaCall" class="csl-entry" role="doc-biblioentry">
+Li, Changcheng. 2019. <span>“<span></span>JuliaCall<span></span>: An <span></span>r<span></span> Package for Seamless Integration Between <span></span>r<span></span> and <span></span>Julia<span></span>”</span> 4: 1284. <a href="https://doi.org/10.21105/joss.01284">https://doi.org/10.21105/joss.01284</a>.
+</div>
 <div id="ref-marinho2018" class="csl-entry" role="doc-biblioentry">
 Marinho, Pedro Rafael Diniz, Gauss M. Cordeiro, Fernando Peña Ramírez, Morad Alizadeh, and Marcelo Bourguignon. 2018. <span>“The Exponentiated Logarithmic Generated Family of Distributions and the Evaluation of the Confidence Intervals by Percentile Bootstrap.”</span> <em>Brazilian Journal of Probability and Statistics</em> 32 (2). <a href="https://doi.org/10.1214/16-bjps343">https://doi.org/10.1214/16-bjps343</a>.
+</div>
+<div id="ref-linguagemr" class="csl-entry" role="doc-biblioentry">
+R Core Team. 2022. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.
+</div>
+<div id="ref-vanrossum2010" class="csl-entry" role="doc-biblioentry">
+Rossum, Guido van. 2010. <span>“Python 3000.”</span> In, 313–15. Apress. <a href="https://doi.org/10.1007/978-1-4302-2758-8_17">https://doi.org/10.1007/978-1-4302-2758-8_17</a>.
+</div>
+<div id="ref-reticulate" class="csl-entry" role="doc-biblioentry">
+Ushey, Kevin, JJ Allaire, and Yuan Tang. 2022. <span>“Reticulate: Interface to ’Python’.”</span> <a href="https://CRAN.R-project.org/package=reticulate">https://CRAN.R-project.org/package=reticulate</a>.
 </div>
 </div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
