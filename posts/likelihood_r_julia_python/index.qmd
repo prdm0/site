@@ -383,8 +383,8 @@ emv_α, emv_β  = emv.minimizer;
 # Imprimindo o resultado
 
 print("Valores estimados para α e β\n")
-print("--> α: ", round(emv_α, digits = 2), "\n")
-print("--> β: ", round(emv_β, digits = 2), "\n")
+print("--> α: ", emv_α, "\n")
+print("--> β: ", emv_β, "\n")
 ```
 
 ## Python
@@ -441,10 +441,10 @@ dados = random_weibull(n = n, alpha = alpha, beta = beta)
 
 # Miminimizando a função -1 * log_likelihood, i.e., maximizando
 # a função log_likelihood.
-alpha, beta = np.round(opt.minimize(
+alpha, beta = opt.minimize(
   fun = lambda *args: log_likelihood(dados, pdf_weibull, *args),
   x0=[0.5, 0.5]
-).x, 2)
+).x
 
 # Imprimindo os valores das estimativas de máxima verossimilhança
 print("Valores estimados de alpha e beta\n")

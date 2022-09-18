@@ -692,13 +692,13 @@ Minimizar ou maximizar?
 <div class="cell-output cell-output-stdout">
 <pre><code>Valores estimados para α e β</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"--&gt; α: "</span>, <span class="fu">round</span>(emv_α, digits <span class="op">=</span> <span class="fl">2</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"--&gt; α: "</span>, emv_α, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>--&gt; α: 2.45</code></pre>
+<pre><code>--&gt; α: 2.4472234393032837</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"--&gt; β: "</span>, <span class="fu">round</span>(emv_β, digits <span class="op">=</span> <span class="fl">2</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"--&gt; β: "</span>, emv_β, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>--&gt; β: 1.45</code></pre>
+<pre><code>--&gt; β: 1.4480344422787308</code></pre>
 </div>
 </div>
 </div>
@@ -755,10 +755,10 @@ Minimizar ou maximizar?
 <span id="cb20-49"><a href="#cb20-49" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-50"><a href="#cb20-50" aria-hidden="true" tabindex="-1"></a><span class="co"># Miminimizando a função -1 * log_likelihood, i.e., maximizando</span></span>
 <span id="cb20-51"><a href="#cb20-51" aria-hidden="true" tabindex="-1"></a><span class="co"># a função log_likelihood.</span></span>
-<span id="cb20-52"><a href="#cb20-52" aria-hidden="true" tabindex="-1"></a>alpha, beta <span class="op">=</span> np.<span class="bu">round</span>(opt.minimize(</span>
+<span id="cb20-52"><a href="#cb20-52" aria-hidden="true" tabindex="-1"></a>alpha, beta <span class="op">=</span> opt.minimize(</span>
 <span id="cb20-53"><a href="#cb20-53" aria-hidden="true" tabindex="-1"></a>  fun <span class="op">=</span> <span class="kw">lambda</span> <span class="op">*</span>args: log_likelihood(dados, pdf_weibull, <span class="op">*</span>args),</span>
 <span id="cb20-54"><a href="#cb20-54" aria-hidden="true" tabindex="-1"></a>  x0<span class="op">=</span>[<span class="fl">0.5</span>, <span class="fl">0.5</span>]</span>
-<span id="cb20-55"><a href="#cb20-55" aria-hidden="true" tabindex="-1"></a>).x, <span class="dv">2</span>)</span>
+<span id="cb20-55"><a href="#cb20-55" aria-hidden="true" tabindex="-1"></a>).x</span>
 <span id="cb20-56"><a href="#cb20-56" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-57"><a href="#cb20-57" aria-hidden="true" tabindex="-1"></a><span class="co"># Imprimindo os valores das estimativas de máxima verossimilhança</span></span>
 <span id="cb20-58"><a href="#cb20-58" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Valores estimados de alpha e beta</span><span class="ch">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -767,11 +767,11 @@ Minimizar ou maximizar?
 </div>
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"--&gt; alpha: "</span>, alpha, <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>--&gt; alpha:  2.54 </code></pre>
+<pre><code>--&gt; alpha:  2.541634329050904 </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"--&gt; beta: "</span>, beta, <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>--&gt; beta:  1.48 </code></pre>
+<pre><code>--&gt; beta:  1.480430581806816 </code></pre>
 </div>
 </div>
 </div>
