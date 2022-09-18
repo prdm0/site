@@ -78,7 +78,7 @@ Funções objetivos irão sempre aparecer na sua vida! 👍
 
 ## Estimadores de máxima verossimilhança - EMV
 
-Para não ficarmos apenas olhado códigos de programação em três linguagens distintas (**R**, **Julia** e **Python**), irei contextualizar um simples problema: o problema de encontrar o máximo da [**função de verossimilhança**](https://en.wikipedia.org/wiki/Likelihood_function). Serei muito breve! 🎉
+Para não ficarmos apenas olhando códigos de programação em três linguagens distintas (**R**, **Julia** e **Python**), irei contextualizar um simples problema: o problema de encontrar o máximo da [**função de verossimilhança**](https://en.wikipedia.org/wiki/Likelihood_function). Serei muito breve! 🎉
 
 ::: {.callout-caution collapse="true"}
 ## A maior barreira 🧱 de uma implementação consistente!
