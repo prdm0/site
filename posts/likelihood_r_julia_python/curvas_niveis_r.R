@@ -41,15 +41,10 @@ df_contour |>
     plot.title  = element_text(face = "bold"),
     legend.title = element_text(face = "bold")
   ) +
+  # R
   geom_point(
     x = 2.86476,
     y = 1.503992,
     color = "red",
     size = 2
-  ) +
-  geom_point(
-    x = ,
-    y = ,
-    color = "green",
-    size = 2,
   )
