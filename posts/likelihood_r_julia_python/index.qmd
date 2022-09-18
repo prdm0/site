@@ -205,7 +205,7 @@ Irei colocar comentários nos códigos para que você possa estudar cada um dele
 
 Antes irei colocar uma observação para a linguagem Python. As pedras angulares para computação científica em Python são as bibliotecas NumPy e Scipy. Por que elas são úteis?
 
-1.  **Numpy**: é uma biblioteca de código aberto iniciada em 2005 e que possui diversos métodos (funções) numéricas comumente utilizadas na computação científica. Há diversos métodos para operar sobre arrays, vetorização, geração de números pseudo aleatórios, entre outras coisas. Consulte mais detalhes em <https://numpy.org/doc/stable>;
+1.  **Numpy**: é uma biblioteca de código aberto iniciada em 2005 e que possui diversos métodos (funções) numéricas comumente utilizadas na computação científica. Há diversos métodos para operar sobre arrays, vetorização, geração de números pseudo-aleatórios, entre outras coisas. Consulte mais detalhes em <https://numpy.org/doc/stable>;
 
 2.  **Scipy**: trata-se de outra biblioteca importante que contém implementações de métodos e algoritmos fundamentais para computação científica, como métodos de integração, interpolação, otimização, entre diversas outras metodologias. Consulte outros detalhes em <https://scipy.org>.
 
@@ -213,7 +213,7 @@ Iremos utilizar ambas as bibliotecas. Basicamente a Numpy será utilizada para v
 
 No [link](https://numpy.org/doc/stable/reference/random/generated/numpy.random.weibull.html) você verá que o que é implementado pelo método `random.weibull` é gerar observações de $X = [-\log(U)]^{1/\alpha} \sim Weibull(\alpha)$, com $U$ sendo um v.a. uniforme no intervalo (0,1\] . Daí, para gerar observações da distribuição $Weibull(\alpha, \beta)$, teremos que multiplicar o resultado de `random.weibull` pelo valor de $\beta$. Porém, com pouco código, podemos construir uma função para gerar observações da $Weibull(\alpha, \beta)$.
 
-![Eu olhando param um pouco de malabarismo de código (desnecessário) em Python.](nao_entendi.gif)
+![Eu olhando para um pouco de malabarismo de código em Python.](nao_entendi.gif)
 
 Veja como seria em R, Julia e Python:
 

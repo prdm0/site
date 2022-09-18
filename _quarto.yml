@@ -21,10 +21,6 @@ website:
     card-style: summary_large_image
   open-graph: true
   favicon: ../img/ozzy.png
-  comments: 
-    hypothesis:
-      theme: clean
-      openSidebar: false
   page-navigation: true
   search: 
       location: navbar
@@ -39,7 +35,7 @@ format:
     toc: true
 
 editor: visual
-  
+
 comments:
   giscus:
     repo: prdm0/site
