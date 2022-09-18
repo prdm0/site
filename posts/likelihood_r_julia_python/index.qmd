@@ -198,7 +198,7 @@ Agora que já conhecemos $f_X$ e $\ell(\cdot)$ ("função objetivo"), poderemos 
 ::: callout-tip
 # E os dados?
 
-Os dados serão gerados aleatoriamente, em cada uma das linguagens ([**R**](https://www.r-project.org), [**Julia**](https://julialang.org) e [**Python**](https://www.python.org)). Sendo assim, muito provavelmente não serão os mesmos dados, em cada linguagem, pois a sequência gerada que corresponderá aos nossos dados dependerá das implementações dos geradores de números pseudo-aleatórios de cada linguagem. Porém, os resultados das estimativas devem convergir para valores próximos a $\alpha = 2.5$ e $\beta = 1.5$, nas três linguagens. Por isso, não irie comparar os resultados das estimativas obtidas, a não ser que viesse a ter resultados muito incoerentes.
+Os dados serão gerados aleatoriamente, em cada uma das linguagens ([**R**](https://www.r-project.org), [**Julia**](https://julialang.org) e [**Python**](https://www.python.org)). Sendo assim, muito provavelmente não serão os mesmos dados, em cada linguagem, pois a sequência gerada que corresponderá aos nossos dados dependerá das implementações dos geradores de números pseudo-aleatórios de cada linguagem. Porém, os resultados das estimativas devem convergir para valores próximos a $\alpha = 2.5$ e $\beta = 1.5$, nas três linguagens. Por isso, não irie comparar, inicialmente, os resultados das estimativas obtidas. Ao final da postagem, farei uma sucinta comparação.
 
 Irei colocar comentários nos códigos para que você possa estudar cada um deles. Nada em excesso!
 :::
@@ -296,7 +296,7 @@ beta <- 1.5
 # Fixando uma semente para o gerador de números pseudo-aleatórios.
 # Assim, conseguimos, toda vez que rodamos o código, reproduzir 
 # os mesmos dados.
-set.seed(3)
+set.seed(0)
 
 # Gerando as observações. Esse será o conjunto de dados que você tera para 
 # modelar.
@@ -455,10 +455,17 @@ print("--> beta: ", beta, "\n")
 
 ### Visualização gráfica
 
+Vamos agorar comparar graficamente as estimativas obtidas pelos métodos de otimização (BFGS) considerando as bibliotecas fornecidas nas três linguages. Para uma melhor visualização, utilizaremos o gráfico de curvas de níveis. Perceba que $\mathcal{L}$ possui como variáveis os parâmetros $\alpha$ e $\beta$, sendo $x$ o conjunto de dados que é fixo. Assim, consiguiremos visualizar em 2D o comportamento de $\mathcal{L}$.
+
+Para que possamos visualizar graficamente e comparar as estimativas obtidas nas três linguagens, será preciso que o conjunto de dados seja idêntico nos processos de otimização realizados em R, Julia e Python.
+
+Para acessar o conjunto de dados, clique [aqui](dados.csv). O conjunto de dados possui $n = 500$ observações. Ainda continuarei considerando $\alpha = 2.5$ e $\beta = 1.5$.
+
 ```{r}
 #| echo: true
 #| code-fold: true
 #| code-summary: "Quer ver o código do gráfico? Clique aqui!"
+#| warning: false
 library(ggplot2)
 library(tidyr)
 library(dplyr)
@@ -491,9 +498,10 @@ df_contour <-
   
 df_contour |> 
   ggplot() + 
-  geom_contour_filled(aes(x = alpha, y = beta, z = z)) +
+  geom_contour_filled(aes(x = alpha, y = beta, z = z), show.legend = FALSE) +
   ggtitle(
     label = "Curvas de níveis da fução de Verossimilhança", 
+    subtitle = "Comparativo R, Python e Julia" 
   ) +
   xlab(TeX(r'(\alpha)')) +
   ylab(TeX(r'(\beta)')) +
@@ -504,21 +512,40 @@ df_contour |>
   ) +
   # R
   geom_point(
-    x = 2.86476,
-    y = 1.503992,
+    x = 2.64276,
+    y = 1.488277 ,
+    color = "blue",
+    size = 3
+  ) +
+  # Python
+  geom_point(
+    x = 2.642850353244295,
+    y = 1.488271661049081,
+    color = "green",
+    size = 2.5
+  ) + 
+  # Julia
+  geom_point(
+    x = 2.642850346755736,
+    y = 1.4882716649411558 ,
     color = "red",
     size = 2
   )
+
 ```
+
+Perceba que foi obtido ótimas estimativas pelo método BFGS, nas três linguagens. Note que tive que colocar um ponto maior que o outro, para que eles não ficassem totalmente sobrepostos.
 
 ## Conclusões
 
-Essa postagem conseguiu exemplificar como poderemos implementar a solução de um problema de estimação por máxima verossimilhança, utilizando as linguagens de programação R, Python e Julia. Nas três linguagens, abordamos conceitos interessantes como funções varargs e funções anônimas, além de algumas estruturas de dados e bibliotecas.
+Espero que esse post tenha conseguido exemplificar como poderemos implementar a solução de um problema de estimação por máxima verossimilhança, utilizando as linguagens de programação R, Python e Julia. Abordamos conceitos interessantes como funções varargs e funções anônimas, além de algumas estruturas de dados e bibliotecas.
 
-Foram observados ótimas estimativas, muito embora elas não são comparáveis, tendo em vista que os conjuntos de dados gerados aleatoriamente foram distintos, por conta da natureza de implementação das funções para geração de números pseudo-aleatórios, disponíveis em cada uma das linguagens comparadas. Foi escolhido fazer dessa forma, para que fosse possível abordar o problema de geração de números pseudo-aleatórios em cada linguagem.
+Nos primeiros códigos, foram observados ótimas estimativas, muito embora elas não são comparáveis, tendo em vista que os conjuntos de dados gerados aleatoriamente foram distintos, por conta da natureza de implementação das funções para geração de números pseudo-aleatórios, disponíveis em cada uma das linguagens comparadas. Foi escolhido fazer dessa forma, para que fosse possível abordar o problema de geração de números pseudo-aleatórios em cada linguagem.
 
-Também é possível perceber que otimizar uma função objetivo é fácil, independentemente da linguagem, sendo possível chegar a códigos concisos e eficientes.
+No fim, foi realizado uma comparação mais justa, onde o mesmo conjunto de dados foi considerado para a produção das curvas de níveis, úteis para visualizar em uma imagem 2D a qualidade das estimativas. No gráfico de curvas de níveis, é possível observar a sobreposição das estimativas obtidas utilizando R, Python e Julia.
 
-Até o próximo post.
+Também é possível perceber que otimizar uma função objetivo é fácil, independentemente da linguagem, sendo possível conseguir códigos concisos e eficientes.
+
+Todos os gráficos dessa postagem foram construídos em R, através da biblioteca @ggplot2. Caso queira construir gráficos em Python ou em Julia, considere as seguintes cito a biblioteca [seaborn](https://seaborn.pydata.org) de Python e a biblioteca [Makie](https://docs.makie.org/stable/) de Julia. São apenas sugestões, tendo em vista que há diversas outras alternativas interessantes.
 
 ## Referências

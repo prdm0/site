@@ -2,6 +2,7 @@ import numpy as np
 import scipy.stats as stat
 import scipy.integrate as inte
 import scipy.optimize as opt
+import csv
 
 # Valores da distribuição verdadeira
 alpha = 2.5
@@ -44,15 +45,17 @@ def log_likelihood(x, pdf, *args):
 # que gerou os dados que desejamos ajustar.
 # Precisamos fixar uma semente, uma vez que queremos os mesmos dados
 # toda vez que rodamos esse código. 
-np.random.seed(0)
-dados = random_weibull(n = n, alpha = alpha, beta = beta)
+#np.random.seed(0)
+#dados = random_weibull(n = n, alpha = alpha, beta = beta)
+
+dados = pandas.read_csv("posts/likelihood_r_julia_python/dados.csv")["dados"]
 
 # Miminimizando a função -1 * log_likelihood, i.e., maximizando
 # a função log_likelihood.
-alpha, beta = np.round(opt.minimize(
+alpha, beta = opt.minimize(
   fun = lambda *args: log_likelihood(dados, pdf_weibull, *args),
   x0=[0.5, 0.5]
-).x, 2)
+).x
 
 # Imprimindo os valores das estimativas de máxima verossimilhança
 print("Valores estimados de alpha e beta\n")

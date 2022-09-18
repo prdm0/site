@@ -1,5 +1,5 @@
 # Quantidade de observações
-n <- 250L
+n <- 500L
 
 # Parâmetros que especificam a distribuição verdadeira, i.e., distribuição
 # da variável aleatória cujo os dados são observações.
@@ -8,7 +8,7 @@ beta <- 1.5
 
 # Fixando uma semente para o gerador de números pseudo-aleatórios. Assim, conseguimos,
 # toda vez que rodamos o código, reproduzir os mesmos dados.
-set.seed(3)
+set.seed(0)
 
 # Gerando as observações. Esse será o conjunto de dados que você tera para 
 # modelar.

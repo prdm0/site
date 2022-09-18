@@ -2,6 +2,9 @@ using Distributions
 using Random
 using Optim
 using QuadGK
+using CSV
+using DataFrames
+
 
 # Quantidade de observações
 n = 250;
@@ -15,7 +18,9 @@ n = 250;
 Random.seed!(0);
 
 # Gerando um array de dados com distribuição Weibull(α, β)
-dados = rand(Weibull(α,β), n);
+# dados = rand(Weibull(α,β), n);
+dados = CSV.read("dados.csv", delim=",", DataFrame)
+
 
 # Função densidade de probaiblidade de uma v.a. 
 # X ∼ Weibull(α, β)

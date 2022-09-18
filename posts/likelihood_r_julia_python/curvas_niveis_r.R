@@ -30,7 +30,7 @@ df_contour <-
   
 df_contour |> 
   ggplot() + 
-  geom_contour_filled(aes(x = alpha, y = beta, z = z)) +
+  geom_contour_filled(aes(x = alpha, y = beta, z = z), show.legend = FALSE) +
   ggtitle(
     label = "Curvas de níveis da fução de Verossimilhança", 
   ) +
@@ -43,8 +43,22 @@ df_contour |>
   ) +
   # R
   geom_point(
-    x = 2.86476,
-    y = 1.503992,
+    x = 2.64276,
+    y = 1.488277 ,
+    color = "blue",
+    size = 3
+  ) +
+  # Python
+  geom_point(
+    x = 2.642850353244295,
+    y = 1.488271661049081,
+    color = "green",
+    size = 2.5
+  ) + 
+  # Julia
+  geom_point(
+    x = 2.642850346755736,
+    y = 1.4882716649411558 ,
     color = "red",
     size = 2
   )
