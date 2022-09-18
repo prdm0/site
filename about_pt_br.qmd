@@ -11,6 +11,7 @@ about:
     - icon: github
       text: Github
       href: https://github.com/prdm0
+comments: false
 ---
 
 <div>
