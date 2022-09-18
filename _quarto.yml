@@ -40,6 +40,9 @@ format:
 
 editor: visual
   
+comments:
+  giscus:
+    repo: prdm0/site
 
 
 
