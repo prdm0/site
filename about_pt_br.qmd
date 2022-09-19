@@ -26,7 +26,7 @@ Olá, meu nome é [**Pedro Rafael D. Marinho**](http://lattes.cnpq.br/7185368598
 
 <!-- Conclui meu doutorado em estatística, no ano de 2014, pelo Programa de Pós-Graduação em Estatística da Universidade Federal de Pernambuco - UFPE, onde trabalhei na área de probabilidade.  -->
 
-Sou entusiasta das linguagens de programação [**R**](https://www.r-project.org) e [**Julia**](https://julialang.org), porém, também me interesso por outas linguagens.
+Sou entusiasta das linguagens de programação [**R**](https://www.r-project.org) e [**Julia**](https://julialang.org), porém, venho me interessando por outras linguagens, como é o caso de [**Python**](https://www.python.org).
 
 Atualmente, tenho interesses na aplicação e no desenvolvimento de bibliotecas computacionais nas áreas de ciência de dados e aprendizagem de máquina. Uma das coisas mais nobres na ciência é desenvolver ferramentas científicas que possam ser amplamente utilizadas na produção e aplicação da ciência.
 

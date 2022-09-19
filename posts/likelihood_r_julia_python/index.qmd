@@ -13,7 +13,7 @@ bibliography: references.bib
 [Ciência de dados](https://pt.wikipedia.org/wiki/Ci%C3%AAncia_de_dados) é, sem dúvidas, uma área de pesquisa que permeia diversas outras ciências, estando mais intimamente relacionada com as áreas de estatística e a computação.
 
 ::: {.callout-note appearance="simple"}
-Eu costumo dizer aos meus alunos que um **ótimo cientista de dados** é o profissional que sabe mais estatística que um cientista da computação mediano e mais computação de que um bom estatístico mediano.
+Eu costumo dizer aos meus alunos que um **ótimo cientista de dados** é o profissional que sabe mais estatística que um cientista da computação mediano e mais computação de que um estatístico mediano.
 :::
 
 Também é importante dizer, antes de irmos ao tópico desse post, que é possível fazer ciência de dados em qualquer linguagem de programação que você domine! Claro, isso não implica que a produção de ciência de dados é igualmente fácil em qualquer linguagem que você escolha.
@@ -534,7 +534,7 @@ df_contour |>
 
 ```
 
-Perceba que foi obtido ótimas estimativas pelo método BFGS, nas três linguagens. Note que tive que colocar um ponto maior que o outro, para que eles não ficassem totalmente sobrepostos.
+Perceba que foi obtido ótimas estimativas pelo método BFGS, nas três linguagens. Note que tive que colocar um ponto maior que o outro, para que eles não ficassem totalmente sobrepostos, e assim pudéssemos visualizar.
 
 ## Conclusões
 
