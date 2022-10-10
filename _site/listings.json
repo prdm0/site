@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/serie_de_taylor/index.html",
       "/posts/likelihood_r_julia_python/index.html"
     ]
   }
